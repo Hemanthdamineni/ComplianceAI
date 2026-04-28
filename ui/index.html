@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ComplianceAI — Institutional Knowledge, Instantly Grounded.</title>
+<meta name="description" content="Ask compliance questions and get answers grounded in your organization's actual policy documents — powered by local AI."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        "on-background":"#191b23","surface-container":"#ecedf7","on-error":"#ffffff",
+        "surface-container-low":"#f2f3fd","on-primary":"#ffffff","on-primary-fixed":"#001a42",
+        "on-primary-container":"#fefcff","secondary-container":"#d5e0f8","on-secondary":"#ffffff",
+        "error":"#ba1a1a","on-error-container":"#93000a","primary-container":"#2170e4",
+        "error-container":"#ffdad6","surface-container-lowest":"#ffffff","tertiary":"#924700",
+        "tertiary-fixed-dim":"#ffb786","on-tertiary":"#ffffff","primary":"#0058be",
+        "tertiary-container":"#b75b00","surface-container-high":"#e6e7f2",
+        "on-tertiary-container":"#fffbff","inverse-on-surface":"#eff0fa",
+        "on-secondary-container":"#586377","surface":"#f9f9ff","surface-dim":"#d8d9e3",
+        "secondary-fixed-dim":"#bcc7de","tertiary-fixed":"#ffdcc6","surface-bright":"#f9f9ff",
+        "primary-fixed":"#d8e2ff","surface-tint":"#005ac2","secondary-fixed":"#d8e3fb",
+        "background":"#f9f9ff","secondary":"#545f73","inverse-surface":"#2e3038",
+        "outline-variant":"#c2c6d6","surface-container-highest":"#e1e2ec","on-surface":"#191b23",
+        "surface-variant":"#e1e2ec","on-primary-fixed-variant":"#004395",
+        "on-surface-variant":"#424754","inverse-primary":"#adc6ff","primary-fixed-dim":"#adc6ff",
+        "outline":"#727785"
+      },
+      spacing: { xs:"4px",sm:"8px",md:"16px",lg:"24px",xl:"40px",gutter:"24px",margin:"32px",unit:"4px" },
+      fontFamily: {
+        sans:["Inter","system-ui","sans-serif"],
+        mono:["ui-monospace","SFMono-Regular","Menlo","monospace"]
+      },
+      fontSize: {
+        "code-mono":["13px",{lineHeight:"1.5",fontWeight:"400"}],
+        "headline-sm":["18px",{lineHeight:"1.4",letterSpacing:"0",fontWeight:"600"}],
+        "body-lg":["16px",{lineHeight:"1.6",letterSpacing:"0",fontWeight:"400"}],
+        "label-caps":["12px",{lineHeight:"1",letterSpacing:"0.05em",fontWeight:"700"}],
+        "headline-md":["24px",{lineHeight:"1.3",letterSpacing:"-0.01em",fontWeight:"600"}],
+        "headline-lg":["32px",{lineHeight:"1.2",letterSpacing:"-0.02em",fontWeight:"700"}],
+        "body-md":["14px",{lineHeight:"1.5",letterSpacing:"0",fontWeight:"400"}]
+      }
+    }
+  }
+}
+</script>
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .grid-bg{
+    background-image:linear-gradient(to right,#e2e8f0 1px,transparent 1px),linear-gradient(to bottom,#e2e8f0 1px,transparent 1px);
+    background-size:24px 24px;
+  }
+  .page{display:none;opacity:0;transition:opacity .18s ease}
+  .page.active{display:flex;flex-direction:column;opacity:1}
+  [data-nav].active-link{color:#0058be;border-bottom:2px solid #0058be;padding-bottom:2px;margin-top:2px}
+  .chip{background:#F1F5F9;border:1px solid transparent;cursor:pointer;transition:all .15s}
+  .chip:hover{background:#e2e8f0;border-color:#cbd5e1}
+  .source-card{transition:border-color .15s,box-shadow .15s}
+  .source-card:hover{border-color:#94a3b8;box-shadow:4px 4px 0 0 rgba(0,0,0,.04)}
+
+  /* typing dots */
+  .typing-dot{width:6px;height:6px;background:#0058be;display:inline-block;animation:typePulse .9s infinite}
+  .typing-dot:nth-child(2){animation-delay:.15s}
+  .typing-dot:nth-child(3){animation-delay:.3s}
+  @keyframes typePulse{0%,80%,100%{opacity:.3;transform:scale(.85)}40%{opacity:1;transform:scale(1)}}
+
+  /* fade-in for staggered reveals */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .reveal{animation:fadeUp .45s cubic-bezier(.16,1,.3,1) both}
+
+  /* relevance bar shimmer */
+  @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+  .skeleton{background:linear-gradient(90deg,#ecedf7 25%,#e1e2ec 50%,#ecedf7 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+
+  /* status dot pulse */
+  .status-dot{position:relative}
+  .status-dot::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:inherit;opacity:.35;animation:statusPing 2s infinite}
+  @keyframes statusPing{0%{transform:scale(1);opacity:.35}70%{transform:scale(2.2);opacity:0}100%{transform:scale(1);opacity:0}}
+
+  /* pipeline arrow flow */
+  @keyframes dashFlow{to{stroke-dashoffset:-20}}
+  .flow-arrow{stroke-dasharray:6 4;animation:dashFlow .8s linear infinite}
+
+  /* mobile menu */
+  .mobile-menu{max-height:0;overflow:hidden;transition:max-height .25s ease}
+  .mobile-menu.open{max-height:200px}
+
+  /* scrollbar */
+  ::-webkit-scrollbar{width:6px}
+  ::-webkit-scrollbar-track{background:#f2f3fd}
+  ::-webkit-scrollbar-thumb{background:#c2c6d6}
+</style>
+</head>
+
+<body class="bg-[#F8FAFC] text-[#191b23] min-h-screen flex flex-col font-sans text-body-md">
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav id="topnav" class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-[0_1px_0_0_#e2e8f0]" role="navigation">
+  <div class="flex justify-between items-center w-full px-6 lg:px-8 h-16 max-w-screen-2xl mx-auto">
+    <a href="#/" class="flex items-center gap-2 no-underline" aria-label="Home">
+      <span class="material-symbols-outlined text-[28px] text-[#0058be]" style="font-variation-settings:'FILL' 0">shield</span>
+      <span class="text-headline-sm font-black tracking-tighter text-slate-900 uppercase">ComplianceAI</span>
+    </a>
+    <div class="hidden md:flex gap-8 items-center h-full">
+      <a data-nav="ask"    href="#/ask"     class="text-body-md font-medium tracking-tight h-full flex items-center text-slate-500 hover:text-[#0058be] transition-colors">Ask</a>
+      <a data-nav="library" href="#/library" class="text-body-md font-medium tracking-tight h-full flex items-center text-slate-500 hover:text-[#0058be] transition-colors">Library</a>
+      <a data-nav="about"  href="#/about"   class="text-body-md font-medium tracking-tight h-full flex items-center text-slate-500 hover:text-[#0058be] transition-colors">About</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="status-dot w-2 h-2 bg-emerald-500 rounded-full" title="System Online"></span>
+      <button id="hamburger" class="md:hidden p-1" aria-label="Menu">
+        <span class="material-symbols-outlined text-slate-700">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu md:hidden border-t border-slate-100 bg-white px-6">
+    <a data-nav="ask"     href="#/ask"     class="block py-3 text-slate-600 hover:text-[#0058be] font-medium">Ask</a>
+    <a data-nav="library" href="#/library" class="block py-3 text-slate-600 hover:text-[#0058be] font-medium">Library</a>
+    <a data-nav="about"   href="#/about"   class="block py-3 text-slate-600 hover:text-[#0058be] font-medium">About</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════ PAGE: LANDING ═══════════════════ -->
+<div id="page-home" class="page flex-grow">
+  <div class="fixed inset-0 grid-bg opacity-20 pointer-events-none"></div>
+  <div class="fixed inset-0 bg-gradient-to-b from-transparent to-[#F8FAFC] pointer-events-none"></div>
+
+  <main class="relative z-10 flex-grow flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    <div class="text-center w-full max-w-4xl mx-auto mb-16">
+      <div class="reveal inline-flex justify-center items-center w-20 h-20 bg-white border border-slate-200 shadow-[4px_4px_0_0_rgba(0,0,0,.05)] mb-8" style="animation-delay:.05s">
+        <span class="material-symbols-outlined text-[52px] text-[#0058be]" style="font-variation-settings:'FILL' 0">shield</span>
+      </div>
+      <h1 class="reveal text-[44px] md:text-[60px] font-black tracking-tighter text-slate-900 leading-[1.05] mb-5" style="animation-delay:.12s">ComplianceAI</h1>
+      <p class="reveal text-headline-md text-slate-500 max-w-xl mx-auto mb-10" style="animation-delay:.2s">Institutional Knowledge, Instantly Grounded.</p>
+
+      <!-- Hero Query Bar -->
+      <div id="heroBar" class="reveal max-w-2xl mx-auto bg-white/80 backdrop-blur-sm border border-slate-200 shadow-[6px_6px_0_0_rgba(0,0,0,.05)] p-2 flex flex-col sm:flex-row gap-2 transition-all focus-within:border-[#0058be] focus-within:shadow-[6px_6px_0_0_rgba(0,88,190,.08)]" style="animation-delay:.28s">
+        <div class="relative flex-grow flex items-center">
+          <span class="material-symbols-outlined absolute left-4 text-slate-400">search</span>
+          <input id="heroInput" class="w-full bg-transparent border-none focus:ring-0 text-body-lg text-slate-900 pl-12 pr-4 py-3.5 placeholder:text-slate-400" placeholder="Ask about specific regulations or policies..."/>
+        </div>
+        <button id="heroBtn" class="bg-[#3B82F6] text-white text-label-caps font-bold px-7 py-3.5 whitespace-nowrap flex items-center gap-2 hover:bg-blue-700 transition-colors">
+          Ask <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </button>
+      </div>
+
+      <!-- Suggestion Chips -->
+      <div class="reveal mt-7 flex flex-wrap justify-center gap-2.5 max-w-2xl mx-auto" style="animation-delay:.36s">
+        <button class="chip text-label-caps font-bold text-slate-500 px-3 py-1.5 hover:text-[#0058be]" onclick="askFromChip(this)">KYC Periodic Updation</button>
+        <button class="chip text-label-caps font-bold text-slate-500 px-3 py-1.5 hover:text-[#0058be]" onclick="askFromChip(this)">Account Freezing Rules</button>
+        <button class="chip text-label-caps font-bold text-slate-500 px-3 py-1.5 hover:text-[#0058be]" onclick="askFromChip(this)">AML Transaction Monitoring</button>
+        <button class="chip text-label-caps font-bold text-slate-500 px-3 py-1.5 hover:text-[#0058be]" onclick="askFromChip(this)">STR Filing Procedure</button>
+      </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="reveal relative z-10 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5" style="animation-delay:.44s">
+      <div class="bg-white border border-slate-200 p-7 flex flex-col items-start hover:shadow-[4px_4px_0_0_rgba(0,0,0,.05)] transition-shadow group">
+        <div class="w-11 h-11 bg-slate-50 border border-slate-200 flex items-center justify-center mb-5 group-hover:border-blue-300 transition-colors">
+          <span class="material-symbols-outlined text-slate-700 group-hover:text-[#0058be]">library_books</span>
+        </div>
+        <h3 class="text-headline-sm text-slate-900 mb-1.5">13 Policy Documents</h3>
+        <p class="text-body-md text-slate-500">Comprehensive ingestion of core regulatory frameworks, instantly searchable and cross-referenced.</p>
+      </div>
+      <div class="bg-white border border-slate-200 p-7 flex flex-col items-start hover:shadow-[4px_4px_0_0_rgba(0,0,0,.05)] transition-shadow group">
+        <div class="w-11 h-11 bg-slate-50 border border-slate-200 flex items-center justify-center mb-5 group-hover:border-blue-300 transition-colors">
+          <span class="material-symbols-outlined text-slate-700 group-hover:text-[#0058be]">memory</span>
+        </div>
+        <h3 class="text-headline-sm text-slate-900 mb-1.5">Local Llama 3.1</h3>
+        <p class="text-body-md text-slate-500">On-premise processing ensures absolute data sovereignty. No sensitive queries leave your infrastructure.</p>
+      </div>
+      <div class="bg-white border border-slate-200 p-7 flex flex-col items-start hover:shadow-[4px_4px_0_0_rgba(0,0,0,.05)] transition-shadow group">
+        <div class="w-11 h-11 bg-slate-50 border border-slate-200 flex items-center justify-center mb-5 group-hover:border-blue-300 transition-colors">
+          <span class="material-symbols-outlined text-slate-700 group-hover:text-[#0058be]">fact_check</span>
+        </div>
+        <h3 class="text-headline-sm text-slate-900 mb-1.5">Every Answer Cited</h3>
+        <p class="text-body-md text-slate-500">Responses are grounded in exact clauses and page numbers, eliminating hallucination risks.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ═══════════════════ PAGE: ASK ═══════════════════ -->
+<div id="page-ask" class="page flex-grow">
+  <main class="flex-1 flex flex-col lg:flex-row overflow-hidden max-w-screen-2xl mx-auto w-full" style="height:calc(100vh - 64px - 52px)">
+    <!-- LEFT: Conversation Panel -->
+    <section class="w-full lg:w-[60%] flex flex-col bg-white border-r border-slate-200 relative">
+      <div id="chatScroll" class="flex-1 overflow-y-auto p-6 flex flex-col gap-5 pb-32">
+        <!-- System Welcome -->
+        <div class="flex items-start gap-3">
+          <div class="w-9 h-9 bg-[#2170e4] text-white flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1">smart_toy</span>
+          </div>
+          <div class="bg-[#f2f3fd] border border-[#d5e0f8] p-4 max-w-[85%]">
+            <p class="text-body-md text-[#191b23]">Welcome to ComplianceAI. I am ready to assist with regulatory intelligence and analysis. What specific compliance topic or document would you like to explore today?</p>
+          </div>
+        </div>
+        <!-- Messages injected here by JS -->
+      </div>
+      <!-- Input Bar -->
+      <div class="absolute bottom-0 w-full bg-white border-t border-slate-200 p-4 shadow-[0_-2px_6px_rgba(0,0,0,.02)]">
+        <div class="flex items-end gap-2">
+          <textarea id="chatInput" class="w-full bg-[#f9f9ff] border border-slate-200 focus:border-[#0058be] focus:ring-0 p-3 resize-none text-body-md text-[#191b23] min-h-[48px] max-h-[160px]" placeholder="Query regulatory frameworks..." rows="1"></textarea>
+          <button id="chatSend" class="bg-[#3B82F6] text-white w-11 h-11 flex items-center justify-center rounded-full hover:bg-blue-700 transition-colors shrink-0 disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1">send</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: Sources Panel -->
+    <aside id="sourcesPanel" class="hidden lg:flex w-full lg:w-[40%] bg-[#f9f9ff] flex-col border-l border-slate-200">
+      <div class="p-5 border-b border-slate-200 bg-white">
+        <h2 class="text-headline-sm text-[#191b23] flex items-center gap-2">
+          <span class="material-symbols-outlined text-[20px]">menu_book</span>
+          Active Sources
+          <span id="sourceCount" class="text-label-caps bg-slate-100 text-slate-500 px-2 py-0.5 ml-1"></span>
+        </h2>
+        <p class="text-body-md text-slate-500 mt-1">Documents referenced in the current response context.</p>
+      </div>
+      <div id="sourcesList" class="flex-1 overflow-y-auto p-5 flex flex-col gap-3">
+        <div class="flex flex-col items-center justify-center h-full text-slate-400 gap-3">
+          <span class="material-symbols-outlined text-[40px]">article</span>
+          <p class="text-body-md text-center max-w-[200px]">Ask a question to see cited sources</p>
+        </div>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<!-- ═══════════════════ PAGE: LIBRARY ═══════════════════ -->
+<div id="page-library" class="page flex-grow">
+  <main class="flex-1 px-6 lg:px-8 py-8 max-w-[1200px] w-full mx-auto">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+      <div>
+        <h1 class="text-headline-lg text-slate-900">Document Library</h1>
+        <p class="text-body-md text-slate-500 mt-1">13 compliance documents indexed and searchable.</p>
+      </div>
+      <div class="relative w-64">
+        <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">search</span>
+        <input id="libSearch" class="w-full bg-white border border-slate-200 focus:border-[#0058be] focus:ring-0 pl-9 pr-3 py-2 text-body-md" placeholder="Search library..."/>
+      </div>
+    </div>
+    <!-- Filters -->
+    <div class="flex flex-wrap gap-2 mb-6">
+      <button class="lib-filter bg-white border-2 border-[#3B82F6] text-[#3B82F6] px-2.5 py-0.5 text-label-caps font-bold" data-cat="all">All Documents</button>
+      <button class="lib-filter chip text-label-caps font-bold text-slate-500 px-2.5 py-0.5" data-cat="compliance">Compliance</button>
+      <button class="lib-filter chip text-label-caps font-bold text-slate-500 px-2.5 py-0.5" data-cat="audit">Audit</button>
+      <button class="lib-filter chip text-label-caps font-bold text-slate-500 px-2.5 py-0.5" data-cat="kyc">KYC</button>
+      <button class="lib-filter chip text-label-caps font-bold text-slate-500 px-2.5 py-0.5" data-cat="risk">Risk</button>
+      <button class="lib-filter chip text-label-caps font-bold text-slate-500 px-2.5 py-0.5" data-cat="aml">AML</button>
+      <button class="lib-filter chip text-label-caps font-bold text-slate-500 px-2.5 py-0.5" data-cat="privacy">Privacy</button>
+    </div>
+    <!-- Document Grid -->
+    <div id="libGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-5"></div>
+  </main>
+</div>
+
+<!-- ═══════════════════ PAGE: ABOUT ═══════════════════ -->
+<div id="page-about" class="page flex-grow">
+  <main class="flex-1 w-full max-w-screen-xl mx-auto px-6 lg:px-8 py-8 lg:py-10 flex flex-col gap-10">
+    <section class="max-w-3xl">
+      <h1 class="text-headline-lg text-[#191b23]">System Architecture &amp; Pipeline</h1>
+      <p class="text-body-lg text-slate-500 mt-2">Clinical precision in regulatory intelligence requires a deterministic, fully transparent data pipeline. Explore how ComplianceAI ingests, processes, and retrieves critical regulatory documentation.</p>
+    </section>
+
+    <!-- Pipeline -->
+    <section>
+      <h2 class="text-label-caps text-slate-500 uppercase tracking-widest border-b border-slate-200 pb-2 mb-5">Retrieval-Augmented Generation Pipeline</h2>
+      <div class="bg-white border border-slate-200 p-6 lg:p-8 flex flex-col lg:flex-row items-center justify-between gap-4">
+        <div class="flex flex-col items-center text-center gap-2 w-28">
+          <div class="w-16 h-16 bg-[#f9f9ff] flex items-center justify-center border border-slate-200 shadow-[4px_4px_0_0_rgba(0,0,0,.04)]">
+            <span class="material-symbols-outlined text-[#0058be] text-3xl">description</span>
+          </div>
+          <span class="text-headline-sm text-[#191b23]">Documents</span>
+          <span class="font-mono text-code-mono text-slate-400">13 Files</span>
+        </div>
+        <svg class="hidden lg:block w-8 h-4" viewBox="0 0 32 16"><line class="flow-arrow" x1="0" y1="8" x2="28" y2="8" stroke="#c2c6d6" stroke-width="2" fill="none"/><polygon points="28,4 32,8 28,12" fill="#c2c6d6"/></svg>
+        <div class="flex flex-col items-center text-center gap-2 w-28">
+          <div class="w-16 h-16 bg-[#f9f9ff] flex items-center justify-center border border-slate-200 shadow-[4px_4px_0_0_rgba(0,0,0,.04)]">
+            <span class="material-symbols-outlined text-[#0058be] text-3xl">horizontal_split</span>
+          </div>
+          <span class="text-headline-sm text-[#191b23]">Chunking</span>
+          <span class="font-mono text-code-mono text-slate-400">JSON+Text</span>
+        </div>
+        <svg class="hidden lg:block w-8 h-4" viewBox="0 0 32 16"><line class="flow-arrow" x1="0" y1="8" x2="28" y2="8" stroke="#c2c6d6" stroke-width="2" fill="none"/><polygon points="28,4 32,8 28,12" fill="#c2c6d6"/></svg>
+        <div class="flex flex-col items-center text-center gap-2 w-28">
+          <div class="w-16 h-16 bg-[#f9f9ff] flex items-center justify-center border border-slate-200 shadow-[4px_4px_0_0_rgba(0,0,0,.04)]">
+            <span class="material-symbols-outlined text-[#0058be] text-3xl">transform</span>
+          </div>
+          <span class="text-headline-sm text-[#191b23]">Embedding</span>
+          <span class="font-mono text-code-mono text-slate-400">MiniLM-L6-v2</span>
+        </div>
+        <svg class="hidden lg:block w-8 h-4" viewBox="0 0 32 16"><line class="flow-arrow" x1="0" y1="8" x2="28" y2="8" stroke="#c2c6d6" stroke-width="2" fill="none"/><polygon points="28,4 32,8 28,12" fill="#c2c6d6"/></svg>
+        <div class="flex flex-col items-center text-center gap-2 w-28">
+          <div class="w-16 h-16 bg-[#f9f9ff] flex items-center justify-center border border-slate-200 shadow-[4px_4px_0_0_rgba(0,0,0,.04)]">
+            <span class="material-symbols-outlined text-[#0058be] text-3xl">search</span>
+          </div>
+          <span class="text-headline-sm text-[#191b23]">Retrieval</span>
+          <span class="font-mono text-code-mono text-slate-400">FAISS L2</span>
+        </div>
+        <svg class="hidden lg:block w-8 h-4" viewBox="0 0 32 16"><line class="flow-arrow" x1="0" y1="8" x2="28" y2="8" stroke="#c2c6d6" stroke-width="2" fill="none"/><polygon points="28,4 32,8 28,12" fill="#c2c6d6"/></svg>
+        <div class="flex flex-col items-center text-center gap-2 w-28">
+          <div class="w-16 h-16 bg-[#f9f9ff] flex items-center justify-center border border-[#0058be] shadow-[4px_4px_0_0_rgba(0,88,190,.08)]">
+            <span class="material-symbols-outlined text-[#0058be] text-3xl">memory</span>
+          </div>
+          <span class="text-headline-sm text-[#191b23]">Generation</span>
+          <span class="font-mono text-code-mono text-slate-400">Llama 3.1</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- System Status -->
+      <section>
+        <h2 class="text-label-caps text-slate-500 uppercase tracking-widest border-b border-slate-200 pb-2 mb-4">System Status</h2>
+        <div class="flex flex-col gap-1">
+          <div class="bg-white border border-slate-200 p-4 flex items-center justify-between">
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-slate-400">database</span><span class="text-headline-sm text-[#191b23]">FAISS Index</span></div>
+            <div class="flex items-center gap-2"><span class="font-mono text-code-mono text-[#0058be]">Online</span><div class="w-2 h-2 bg-[#0058be] rounded-full"></div></div>
+          </div>
+          <div class="bg-white border border-slate-200 p-4 flex items-center justify-between">
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-slate-400">smart_toy</span><span class="text-headline-sm text-[#191b23]">Ollama Service</span></div>
+            <div class="flex items-center gap-2"><span class="font-mono text-code-mono text-[#0058be]">Online</span><div class="w-2 h-2 bg-[#0058be] rounded-full"></div></div>
+          </div>
+          <div class="bg-white border border-slate-200 p-4 flex items-center justify-between">
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-slate-400">router</span><span class="text-headline-sm text-[#191b23]">API Server</span></div>
+            <div class="flex items-center gap-2"><span class="font-mono text-code-mono text-[#0058be]">Online</span><div class="w-2 h-2 bg-[#0058be] rounded-full"></div></div>
+          </div>
+        </div>
+      </section>
+      <!-- Tech Stack -->
+      <section>
+        <h2 class="text-label-caps text-slate-500 uppercase tracking-widest border-b border-slate-200 pb-2 mb-4">Technology Stack</h2>
+        <div class="grid grid-cols-2 gap-1">
+          <div class="bg-white border border-slate-200 p-4"><span class="text-label-caps text-slate-400 block">Vector Store</span><span class="text-headline-sm text-[#191b23]">FAISS</span></div>
+          <div class="bg-white border border-slate-200 p-4"><span class="text-label-caps text-slate-400 block">Embedding Model</span><span class="text-headline-sm text-[#191b23]">MiniLM-L6-v2</span></div>
+          <div class="bg-white border border-slate-200 p-4"><span class="text-label-caps text-slate-400 block">Inference Engine</span><span class="text-headline-sm text-[#191b23]">Ollama</span></div>
+          <div class="bg-white border border-slate-200 p-4"><span class="text-label-caps text-slate-400 block">Backend</span><span class="text-headline-sm text-[#191b23]">FastAPI</span></div>
+          <div class="bg-white border border-slate-200 p-4 col-span-2"><span class="text-label-caps text-slate-400 block">LLM</span><span class="text-headline-sm text-[#191b23]">Llama 3.1 · 8B</span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="bg-slate-50 border-t border-slate-200 z-10 relative mt-auto">
+  <div class="flex flex-col md:flex-row justify-between items-center w-full px-6 lg:px-8 py-4 gap-3 max-w-screen-2xl mx-auto">
+    <div class="text-label-caps text-slate-400 uppercase tracking-widest">Powered by Llama 3.1 · FAISS · Local Inference</div>
+    <div class="text-label-caps text-slate-400 uppercase tracking-widest">v0.1</div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ DOCUMENT DETAIL MODAL ═══════════════════ -->
+<div id="docModal" class="fixed inset-0 z-[100] hidden">
+  <div id="docOverlay" class="absolute inset-0 bg-black/40"></div>
+  <div id="docDrawer" class="absolute right-0 top-0 h-full w-full sm:w-[480px] bg-white border-l border-slate-200 shadow-[-8px_0_24px_rgba(0,0,0,.08)] transform translate-x-full transition-transform duration-300 overflow-y-auto">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-5">
+        <div>
+          <h2 id="modalTitle" class="text-headline-md text-[#191b23]"></h2>
+          <p id="modalMeta" class="text-body-md text-slate-500 mt-1"></p>
+        </div>
+        <button id="modalClose" class="p-1 text-slate-400 hover:text-slate-700"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <div id="modalChunks" class="flex flex-col gap-4"></div>
+      <button id="modalAsk" class="mt-6 w-full bg-[#3B82F6] text-white text-label-caps font-bold px-4 py-3 flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors">
+        Ask about this document <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Data ──────────────────────────────────────────────────
+const API = "http://localhost:8000";
+const DOCS = [
+  {id:"compliance_manual",name:"Compliance Manual",dept:"Compliance Division",cat:"compliance",size:"17.9 KB",icon:"policy",color:"blue"},
+  {id:"audit_guidelines",name:"Audit Guidelines",dept:"Internal Audit",cat:"audit",size:"12.7 KB",icon:"fact_check",color:"purple"},
+  {id:"reporting_guidelines",name:"Reporting Guidelines",dept:"Reporting Dept",cat:"compliance",size:"13.3 KB",icon:"summarize",color:"blue"},
+  {id:"kyc_onboarding",name:"KYC Onboarding",dept:"Operations",cat:"kyc",size:"13.3 KB",icon:"person_search",color:"emerald"},
+  {id:"periodic_updation",name:"Periodic Updation",dept:"Compliance Division",cat:"kyc",size:"11.6 KB",icon:"update",color:"emerald"},
+  {id:"customer_risk_classification",name:"Customer Risk Classification",dept:"Risk Dept",cat:"risk",size:"11.3 KB",icon:"warning",color:"orange"},
+  {id:"definitions",name:"Definitions",dept:"Compliance Division",cat:"compliance",size:"10.4 KB",icon:"menu_book",color:"blue"},
+  {id:"data_privacy_policy",name:"Data Privacy Policy",dept:"Legal / Privacy",cat:"privacy",size:"11.5 KB",icon:"lock",color:"purple"},
+  {id:"incident_management",name:"Incident Management",dept:"Security Operations",cat:"compliance",size:"14.4 KB",icon:"report",color:"orange"},
+  {id:"roles_responsibilities",name:"Roles & Responsibilities",dept:"Governance",cat:"compliance",size:"13.3 KB",icon:"group",color:"blue"},
+  {id:"str_ctr_procedure",name:"STR/CTR Procedure",dept:"AML Division",cat:"aml",size:"11.6 KB",icon:"gavel",color:"orange"},
+  {id:"training_assessment",name:"Training & Assessment",dept:"HR / Training",cat:"compliance",size:"11.8 KB",icon:"school",color:"emerald"},
+  {id:"transaction_monitoring",name:"Transaction Monitoring",dept:"AML Division",cat:"aml",size:"13.6 KB",icon:"monitoring",color:"orange"},
+];
+const ICON_COLORS = {blue:"bg-blue-50 border-blue-100 text-blue-600",purple:"bg-purple-50 border-purple-100 text-purple-600",emerald:"bg-emerald-50 border-emerald-100 text-emerald-600",orange:"bg-orange-50 border-orange-100 text-orange-600"};
+const BORDER_COLORS = {blue:"border-l-[#0058be]",purple:"border-l-purple-500",emerald:"border-l-emerald-500",orange:"border-l-[#b75b00]"};
+
+// ── Router ────────────────────────────────────────────────
+function route(){
+  const hash = location.hash||"#/";
+  const pg = hash.replace("#/","") || "home";
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  const el = document.getElementById("page-"+pg);
+  if(el) el.classList.add("active"); else document.getElementById("page-home").classList.add("active");
+  document.querySelectorAll("[data-nav]").forEach(a=>{a.classList.remove("active-link");if(a.dataset.nav===pg) a.classList.add("active-link")});
+  document.getElementById("mobileMenu").classList.remove("open");
+}
+window.addEventListener("hashchange",route);
+window.addEventListener("DOMContentLoaded",()=>{route();renderLibrary();initChat()});
+
+// ── Mobile Menu ──────────────────────────────────────────
+document.getElementById("hamburger").addEventListener("click",()=>{document.getElementById("mobileMenu").classList.toggle("open")});
+
+// ── Hero → Ask redirect ─────────────────────────────────
+document.getElementById("heroBtn").addEventListener("click",()=>{
+  const q=document.getElementById("heroInput").value.trim();
+  if(!q)return;location.hash="#/ask";setTimeout(()=>{document.getElementById("chatInput").value=q;submitChat()},100);
+});
+document.getElementById("heroInput").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();document.getElementById("heroBtn").click()}});
+function askFromChip(btn){document.getElementById("heroInput").value=btn.textContent.trim();document.getElementById("heroBtn").click()}
+
+// ── Chat ─────────────────────────────────────────────────
+let chatBusy=false;
+function initChat(){
+  const inp=document.getElementById("chatInput"),btn=document.getElementById("chatSend");
+  inp.addEventListener("input",()=>{btn.disabled=!inp.value.trim()||chatBusy;inp.style.height="auto";inp.style.height=Math.min(inp.scrollHeight,160)+"px"});
+  inp.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();if(!btn.disabled)submitChat()}});
+  btn.addEventListener("click",submitChat);
+  document.addEventListener("keydown",e=>{if(e.key==="/"&&location.hash==="#/ask"&&document.activeElement!==inp){e.preventDefault();inp.focus()}});
+}
+function addMsg(role,html){
+  const wrap=document.createElement("div");
+  wrap.className="flex items-start gap-3 reveal"+(role==="user"?" flex-row-reverse":"");
+  const icon=document.createElement("div");
+  icon.className="w-9 h-9 flex items-center justify-center shrink-0 "+(role==="user"?"bg-slate-100 text-slate-600 border border-slate-200":"bg-[#2170e4] text-white");
+  icon.innerHTML=`<span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1">${role==="user"?"person":"smart_toy"}</span>`;
+  const bubble=document.createElement("div");
+  bubble.className="p-4 max-w-[85%] text-body-md "+(role==="user"?"bg-[#0058be] text-white":"bg-[#f9f9ff] border border-slate-200 text-[#191b23]");
+  bubble.innerHTML=html;
+  wrap.appendChild(icon);wrap.appendChild(bubble);
+  document.getElementById("chatScroll").appendChild(wrap);
+  wrap.scrollIntoView({behavior:"smooth",block:"end"});
+  return bubble;
+}
+function showTyping(){
+  const wrap=document.createElement("div");wrap.id="typingWrap";wrap.className="flex items-start gap-3";
+  wrap.innerHTML=`<div class="w-9 h-9 bg-[#2170e4] text-white flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1">smart_toy</span></div><div class="bg-[#f9f9ff] border border-slate-200 p-4 flex gap-1.5 items-center"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
+  document.getElementById("chatScroll").appendChild(wrap);wrap.scrollIntoView({behavior:"smooth",block:"end"});
+}
+function removeTyping(){const el=document.getElementById("typingWrap");if(el)el.remove()}
+
+function renderSources(sources){
+  const list=document.getElementById("sourcesList");
+  const count=document.getElementById("sourceCount");
+  list.innerHTML="";count.textContent=sources.length;
+  const panel=document.getElementById("sourcesPanel");
+  panel.classList.remove("hidden");panel.classList.add("flex");
+  sources.forEach((s,i)=>{
+    const file=s.citation||"unknown";const fname=file.split("/").pop();
+    const doc=DOCS.find(d=>fname.includes(d.id));
+    const col=doc?doc.color:"blue";
+    const card=document.createElement("div");
+    card.className=`source-card bg-white border border-slate-200 border-l-4 ${BORDER_COLORS[col]||"border-l-[#0058be]"} p-4 flex flex-col gap-2 reveal`;
+    card.style.animationDelay=(i*100)+"ms";
+    card.innerHTML=`
+      <div class="flex justify-between items-start">
+        <span class="font-mono text-code-mono text-slate-500 bg-slate-50 px-2 py-0.5">${fname}</span>
+        <span class="material-symbols-outlined text-slate-300 text-[18px]">open_in_new</span>
+      </div>
+      <h3 class="text-[15px] font-semibold text-[#191b23] leading-snug">${s.chunk_id}</h3>
+      <p class="text-body-md text-slate-500 line-clamp-2">${s.citation}</p>`;
+    list.appendChild(card);
+  });
+}
+async function submitChat(){
+  if(chatBusy)return;const inp=document.getElementById("chatInput");const q=inp.value.trim();if(!q)return;
+  chatBusy=true;inp.value="";inp.style.height="auto";document.getElementById("chatSend").disabled=true;
+  addMsg("user",`<p>${esc(q)}</p>`);showTyping();
+  // skeleton sources
+  const list=document.getElementById("sourcesList");list.innerHTML="";
+  for(let i=0;i<3;i++){const sk=document.createElement("div");sk.className="skeleton h-28 w-full";list.appendChild(sk)}
+  document.getElementById("sourceCount").textContent="…";
+
+  try{
+    const res=await fetch(API+"/query",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:q})});
+    const data=await res.json();removeTyping();
+    const answer=data.answer||"No answer received.";
+    const bubble=addMsg("ai",formatAnswer(answer,data.sources?.length||0));
+    if(data.sources&&data.sources.length) renderSources(data.sources);
+    else{list.innerHTML=`<p class="text-body-md text-slate-400 text-center mt-8">No sources found.</p>`;document.getElementById("sourceCount").textContent="0";}
+  }catch(e){
+    removeTyping();addMsg("ai",`<p class="text-red-600">Error: Could not connect to API at ${API}. Ensure the server is running.</p>`);
+    list.innerHTML="";document.getElementById("sourceCount").textContent="0";
+  }
+  chatBusy=false;document.getElementById("chatSend").disabled=!document.getElementById("chatInput").value.trim();
+}
+function formatAnswer(text,srcCount){
+  let html=text.replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>").replace(/\n- /g,"\n• ").replace(/\n/g,"<br/>");
+  if(srcCount) html+=`<div class="mt-3 inline-flex items-center gap-1 bg-slate-100 text-slate-600 text-label-caps font-bold px-2 py-1"><span class="material-symbols-outlined text-[14px]">article</span>${srcCount} SOURCES CITED</div>`;
+  return html;
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+
+// ── Library ──────────────────────────────────────────────
+let activeCat="all";
+function renderLibrary(){
+  const grid=document.getElementById("libGrid");grid.innerHTML="";
+  const search=(document.getElementById("libSearch")?.value||"").toLowerCase();
+  DOCS.filter(d=>(activeCat==="all"||d.cat===activeCat)&&(!search||d.name.toLowerCase().includes(search)||d.dept.toLowerCase().includes(search))).forEach((d,i)=>{
+    const c=ICON_COLORS[d.color];
+    const card=document.createElement("div");
+    card.className="bg-white border border-slate-200 p-5 flex flex-col hover:border-slate-300 transition-colors group reveal";
+    card.style.animationDelay=(i*60)+"ms";
+    card.innerHTML=`
+      <div class="flex justify-between items-start mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 ${c} flex items-center justify-center border"><span class="material-symbols-outlined">${d.icon}</span></div>
+          <div><h3 class="text-headline-sm text-slate-900 group-hover:text-[#0058be] transition-colors cursor-pointer">${d.name}</h3><p class="font-mono text-code-mono text-slate-400">${d.id}.txt</p></div>
+        </div>
+        <button class="text-slate-300 hover:text-slate-600 transition-colors p-1" onclick="openDocModal('${d.id}')"><span class="material-symbols-outlined text-[18px]">open_in_new</span></button>
+      </div>
+      <div class="flex gap-1.5 mb-4">
+        <span class="bg-slate-50 text-slate-600 px-1.5 py-px text-label-caps font-bold">${d.cat.toUpperCase()}</span>
+        <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-1.5 py-px text-label-caps font-bold">INDEXED</span>
+      </div>
+      <div class="mt-auto pt-4 border-t border-slate-100 flex justify-between items-center text-body-md text-slate-400">
+        <span>${d.dept}</span><span>${d.size}</span>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+document.getElementById("libSearch")?.addEventListener("input",renderLibrary);
+document.querySelectorAll(".lib-filter").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".lib-filter").forEach(b=>{b.className="lib-filter chip text-label-caps font-bold text-slate-500 px-2.5 py-0.5"});
+    btn.className="lib-filter bg-white border-2 border-[#3B82F6] text-[#3B82F6] px-2.5 py-0.5 text-label-caps font-bold";
+    activeCat=btn.dataset.cat;renderLibrary();
+  });
+});
+
+// ── Document Modal ───────────────────────────────────────
+function openDocModal(id){
+  const d=DOCS.find(x=>x.id===id);if(!d)return;
+  document.getElementById("modalTitle").textContent=d.name;
+  document.getElementById("modalMeta").textContent=d.dept+" · "+d.id+".txt";
+  document.getElementById("modalChunks").innerHTML=`
+    <div class="border border-slate-200 p-4">
+      <div class="flex justify-between items-center mb-2">
+        <span class="font-mono text-code-mono text-slate-500">${d.id.toUpperCase().replace(/_/g,"").slice(0,6)}_CHUNK01</span>
+        <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-1.5 py-px text-label-caps font-bold">INDEXED</span>
+      </div>
+      <p class="text-body-md text-slate-600">Primary topic chunk covering core procedures and definitions for ${d.name.toLowerCase()}.</p>
+      <p class="text-body-md text-slate-400 mt-2">Applicable Roles: Branch Manager, Compliance Officer</p>
+    </div>
+    <div class="border border-slate-200 p-4">
+      <div class="flex justify-between items-center mb-2">
+        <span class="font-mono text-code-mono text-slate-500">${d.id.toUpperCase().replace(/_/g,"").slice(0,6)}_CHUNK02</span>
+        <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-1.5 py-px text-label-caps font-bold">INDEXED</span>
+      </div>
+      <p class="text-body-md text-slate-600">Extended guidance and edge cases for ${d.name.toLowerCase()} with audit expectations.</p>
+      <p class="text-body-md text-slate-400 mt-2">Applicable Roles: Auditor, Data Officers</p>
+    </div>`;
+  const modal=document.getElementById("docModal");modal.classList.remove("hidden");
+  requestAnimationFrame(()=>{document.getElementById("docDrawer").style.transform="translateX(0)"});
+  document.getElementById("modalAsk").onclick=()=>{closeDocModal();location.hash="#/ask";setTimeout(()=>{document.getElementById("chatInput").value="Tell me about "+d.name;submitChat()},150)};
+}
+function closeDocModal(){
+  document.getElementById("docDrawer").style.transform="translateX(100%)";
+  setTimeout(()=>document.getElementById("docModal").classList.add("hidden"),300);
+}
+document.getElementById("modalClose").addEventListener("click",closeDocModal);
+document.getElementById("docOverlay").addEventListener("click",closeDocModal);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDocModal()});
+</script>
+</body>
+</html>
