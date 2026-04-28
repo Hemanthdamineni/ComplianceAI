@@ -1,0 +1,32 @@
+# ── Pixi ──────────────────────────────────────────────────────
+.pixi/
+
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Vector Store artifacts (rebuilt via `pixi run build-index`) ──
+vector_store/*
+!vector_store/.gitkeep
+
+# ── Generated PDFs ────────────────────────────────────────────
+dataset/internal_docs_pdf/
+
+# ── Report (external documentation) ──────────────────────────
+Report/
+
+# ── Environment / secrets ─────────────────────────────────────
+.env
+.env.*
+
+# ── IDE ───────────────────────────────────────────────────────
+.vscode/
+.idea/
+
+# ── OS ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

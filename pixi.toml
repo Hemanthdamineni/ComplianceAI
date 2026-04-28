@@ -1,0 +1,44 @@
+[workspace]
+name = "compliance-rag"
+version = "0.1.0"
+description = "Compliance RAG pipeline — FAISS-backed semantic search over KYC/AML internal docs with an OpenAI-powered FastAPI endpoint."
+authors = ["zorro-omarchy"]
+channels = ["conda-forge", "pytorch"]
+platforms = ["linux-64"]
+
+# ── Base Python ──────────────────────────────────────────────
+[dependencies]
+python = ">=3.11,<3.13"
+
+# ── PyPI packages ────────────────────────────────────────────
+[pypi-dependencies]
+
+# API
+fastapi    = ">=0.115,<1"
+uvicorn    = { version = ">=0.34,<1", extras = ["standard"] }
+pydantic   = ">=2,<3"
+
+# LLM
+openai     = ">=1.30,<2"
+
+# Embeddings & Vector Store
+sentence-transformers = ">=3,<4"
+faiss-cpu             = ">=1.9,<2"
+
+# Data / Utilities
+numpy      = ">=1.26,<3"
+fpdf2      = ">=2.8,<3"
+
+# ── Tasks ────────────────────────────────────────────────────
+[tasks]
+# Start the FastAPI server (reload mode for development)
+serve      = "uvicorn api.main:app --reload --host 0.0.0.0 --port 8000"
+
+# Rebuild the FAISS index from scratch
+build-index = "python -m pipeline.index_builder"
+
+# Run the standalone retrieval test
+test-query  = "python -m pipeline.test_query"
+
+# Generate PDFs from internal doc .txt files
+gen-pdf     = "python gen_pdf.py"
