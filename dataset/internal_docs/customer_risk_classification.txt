@@ -1,0 +1,158 @@
+{
+  "chunk_id": "CUSRISK_CHUNK01",
+  "document_name": "Customer Risk Classification",
+  "source_file": "customer_risk_classification.txt",
+  "source_file_path": "dataset/internal_docs/customer_risk_classification.txt",
+  "department": "Compliance Division",
+  "topic": "Categorization Criteria for Low, Medium, and High Risk",
+  "intent": "Define the institutional rubrics placing customers into distinct risk profiles directly impacting onboarding friction.",
+  "keywords": ["Risk Categorization", "Low Risk", "High Risk", "Customer Profiling", "Risk Matrix"],
+  "risk_level": "High",
+  "applicable_role": ["Onboarding Agents", "Frontline Staff"],
+  "user_queries": [
+    "How do I determine if a customer is High Risk?",
+    "What makes a customer qualify for the Low Risk category?",
+    "Why must we categorize customers by risk before onboarding?"
+  ]
+}
+[CHUNK_ID: CUSRISK_CHUNK01]
+[TOPIC: Categorization Criteria for Low, Medium, and High Risk]
+
+Organization Name: XYZ Financial Services Pvt. Ltd.
+Document Type: Customer Risk Classification
+Department: Compliance Division
+Version: 1.0
+
+This document is intended for employees undergoing compliance training and audit preparation within the organization.
+
+INTRODUCTION
+Every customer onboarded to our institution must be algorithmically and manually evaluated against a structural Risk Matrix. The assignment of a Low, Medium, or High-Risk rating dictates the amount of evidentiary friction applied during onboarding, the velocity of automated alerts, and the strictness of periodic updating. Misclassifying a dangerous customer as "Low Risk" cripples downstream defense mechanisms.
+
+RISK CATEGORIES AND CRITERIA
+* Low Risk: Individuals and entities whose identities and sources of wealth can be easily identified. They include salaried employees with verifiable employers, government departments, and lower-income demographic profiles posing minimal systemic extraction threats.
+* Medium Risk: Customers carrying circumstantial markers requiring baseline caution. They may include self-employed individuals with high cash throughput, small unlisted companies, and non-resident customers whose physical presence cannot be natively verified easily.
+* High Risk: Customers manifesting complex structures or geographic hazards. This category strictly encompasses Politically Exposed Persons (PEPs), complex trusts, offshore corporations, NGOs reliant on donations, and businesses linked to precious metals, arms, or cash-intensive operations.
+
+DIRECT_ANSWER:
+Customers are rigidly categorized into Low, Medium, or High Risk depending on occupational complexity, geographic location, and business structures. Employees classify readily verifiable salaried individuals as Low Risk, while NGOs, PEPs, and complex unlisted corporations implicitly mandate High Risk statuses.
+
+SEARCH_TERMS:
+Risk Categorization, High-Risk Markers, Low Risk Qualifications, PEPs, Entity Risk Matrix
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter III (Customer Acceptance Policy), Section 11
+- Clause Summary: Details that REs must formulate varying risk topologies factoring customer parameters—such as social/financial status and business activity—categorizing them structurally into Low, Medium, or High risk.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 6
+- Paragraph/Clause: Chapter III, Section 11
+
+INTERNAL INTERPRETATION:
+XYZ Financial Services translates this regulation into a zero-trust model. A new application begins with a baseline of strict scrutiny. Only objective socioeconomic facts—like providing a verifiable centralized salary slip—can lower the score to "Low Risk." If the corporate owner structure is opaque, it defaults immediately to High Risk.
+
+ACTIONABLE STEPS:
+- Look past the application title. If the self-employed applicant runs a cash-heavy jewelry exchange, immediately override the default system settings mapping them to High Risk.
+- Flag any applicant declaring occupation as "politician" or "senior civil servant" instantly to the Branch Manager for PEP protocol validation.
+
+EDGE CASES:
+- A new customer is a salaried government worker (Low Risk profile), but their permanent address sits directly on an externally flagged high-risk border jurisdiction. The geographical flag overrides the occupational score, forcing an upgrade to Medium or High Risk.
+
+COMMON MISTAKES:
+- Giving High-Risk status completely arbitrary definitions locally so branch staff deliberately assign "Low Risk" to ease document collection burdens.
+
+BEST PRACTICES:
+- Interrogate the "Nature of Business." Simply accepting "Consulting" is deeply flawed; staff must uncover precisely *whom* the customer consults to calculate genuine risk weights.
+
+Q&A SECTION:
+Q: Who qualifies specifically under the Low Risk definition?
+A: Lower-risk constituents generally include domestic salaried employees backed by verifiable employers and baseline government entities showing no structural complexity.
+Q: Why would an NGO definitively trigger High-Risk categorization?
+A: NGOs derive operating capital from opaque donation streams that can seamlessly obfuscate illegitimate funds, demanding drastically intensified due diligence from institutions.
+Q: How does risk classification influence downstream systems?
+A: The assigned label governs the intensity of automated transaction alerts and structurally determines exactly how often the customer's KYC documents must be refreshed.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter III, Section 11
+
+---
+
+{
+  "chunk_id": "CUSRISK_CHUNK02",
+  "document_name": "Customer Risk Classification",
+  "source_file": "customer_risk_classification.txt",
+  "source_file_path": "dataset/internal_docs/customer_risk_classification.txt",
+  "department": "Compliance Division",
+  "topic": "Enhanced Due Diligence and Monitoring Differences",
+  "intent": "Delineate how transaction monitoring scales against risk scores and explicitly mandate Enhanced Due Diligence parameters for high-risk targets.",
+  "keywords": ["Enhanced Due Diligence", "EDD", "Continuous Monitoring", "Transaction Alerts", "Senior Approval"],
+  "risk_level": "High",
+  "applicable_role": ["Compliance Analysts", "Branch Manager", "Principal Officer"],
+  "user_queries": [
+    "What are the extra steps required for Enhanced Due Diligence?",
+    "Do High Risk accounts get monitored differently by the system?",
+    "Why must senior management approve EDD applications?"
+  ]
+}
+[CHUNK_ID: CUSRISK_CHUNK02]
+[TOPIC: Enhanced Due Diligence and Monitoring Differences]
+
+ENHANCED DUE DILIGENCE (EDD)
+When an account formally lands in the High-Risk category, Standard Customer Due Diligence (CDD) is wholly insufficient. Employees must execute Enhanced Due Diligence (EDD), a fundamentally invasive verification protocol requiring:
+* Gathering exhaustive documentary proof verifying the origins of the customer’s entire Source of Wealth.
+* Mandating explicit written sign-off from a Senior Branch Manager or regional head before the core system activates the account.
+* Implementing a background narrative check exploring the individual's reputational data, adverse media mentions, and family associations.
+
+MONITORING DIFFERENCES
+The automated transaction engine fundamentally behaves differently based on the onboarding categorization flag. 
+* Low Risk: The system permits relatively high unhindered intra-month transaction volumes, executing monitoring algorithms on a predominantly post-facto monthly cadence.
+* High Risk: The system imposes hyper-sensitive thresholds. Algorithmic triggers frequently pause transactions in real-time, demanding analyst intervention and branch validation before releasing funds. Operations staff must be prepared for a vastly increased Request for Information (RFI) volume associated directly with these accounts.
+
+DIRECT_ANSWER:
+High-Risk entities mandate Enhanced Due Diligence, obligating staff to verify complex wealth sources and secure senior management activation approvals. Furthermore, internal transaction monitoring systems apply hyper-sensitive, real-time alerting thresholds explicitly restricting high-risk accounts compared to the softer, post-facto limits enjoyed by Low-Risk profiles.
+
+SEARCH_TERMS:
+Enhanced Due Diligence, EDD Actions, Source of Wealth, Real-Time Alerts, Adverse Media
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter VI (Customer Due Diligence), Section 41 & Chapter IX
+- Clause Summary: Explicitly bounds the deployment of Enhanced Due Diligence measures, stipulating intense scrutiny regarding specific high-risk jurisdictions, complex structures, and PEP networks.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 18
+- Paragraph/Clause: Chapter VI, Section 41
+
+INTERNAL INTERPRETATION:
+XYZ Financial Services accepts that onboarding a High-Risk client is dangerous. EDD isn't just about filing more papers; it’s an institutional commitment ensuring we know precisely how the customer earned their millions before we touch a cent of it. Senior management approvals guarantee that a single junior agent cannot unilaterally endanger the bank.
+
+ACTIONABLE STEPS:
+- Query public domain archives and search engines for negative news surrounding the applicant prior to submitting an EDD package for managerial signature.
+- Reject the account completely if the "Source of Wealth" explanation provided is ambiguous, circular, or unverifiable on paper.
+
+EDGE CASES:
+- A "Low Risk" customer wins a massive public lottery and deposits the windfall. The monumental change in assets and transactional behavior requires an immediate internal alert to re-categorize the profile to "High Risk" and impose post-onboarding EDD regarding the windfall validation.
+
+COMMON MISTAKES:
+- A manager automatically signing an EDD clearance pile at the end of the day without manually verifying that the underlying Source of Wealth was properly physically documented.
+- Branch staff advising High-Risk prospects to manipulate their application data to artificially slide under the Medium-Risk tier to avoid paperwork.
+
+BEST PRACTICES:
+- Centralize EDD reviews. Route intensely complex corporate structural maps up to Central Compliance for parsing rather than forcing busy branch tellers to decipher offshore trust diagrams.
+
+Q&A SECTION:
+Q: What specific evidentiary threshold defines Enhanced Due Diligence?
+A: Beyond standard identity collection, EDD demands verified proof capturing the total Source of Wealth, negative media clearances, and mandatory senior managerial approval.
+Q: Why do High Risk classifications generate more transaction alerts?
+A: The core engine automatically applies drastically tighter numerical thresholds to High-Risk profiles, triggering real-time pauses on transactions that would otherwise clear trivially on Low-Risk accounts.
+Q: What must govern the onboarding of a PEP?
+A: A PEP structurally defaults to High Risk instantaneously, invoking relentless operational EDD and specialized Senior Compliance leadership sign-offs without exception.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter VI, Section 41

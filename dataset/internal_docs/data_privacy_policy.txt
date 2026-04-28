@@ -1,0 +1,158 @@
+{
+  "chunk_id": "DATAPRIV_CHUNK01",
+  "document_name": "Data Privacy Policy",
+  "source_file": "data_privacy_policy.txt",
+  "source_file_path": "dataset/internal_docs/data_privacy_policy.txt",
+  "department": "Compliance Division",
+  "topic": "Customer Data Handling and Absolute Confidentiality",
+  "intent": "Delineate institutional expectations regarding the collection, handling, and rigorous preservation of sensitive consumer financial identity blocks.",
+  "keywords": ["Data Privacy", "Confidentiality", "Customer Handling", "Information Security", "Secrecy"],
+  "risk_level": "High",
+  "applicable_role": ["All Employees", "Data Officers"],
+  "user_queries": [
+    "What are the rules for handling customer data?",
+    "Can I share customer details with an external vendor?",
+    "Why is confidentiality considered a core AML requirement?"
+  ]
+}
+[CHUNK_ID: DATAPRIV_CHUNK01]
+[TOPIC: Customer Data Handling and Absolute Confidentiality]
+
+Organization Name: XYZ Financial Services Pvt. Ltd.
+Document Type: Data Privacy Policy
+Department: Compliance Division
+Version: 1.0
+
+This document is intended for employees undergoing compliance training and audit preparation within the organization.
+
+INTRODUCTION
+Handling sensitive financial profiles generates a profound institutional responsibility. Customers entrust our organization with highly confidential data including exact income streams, pan-national identification codes, complex corporate structures, and daily transaction velocities. Breaching this trust through poor data handling not only destroys our reputation but also inherently triggers severe regulatory penalization sequences.
+
+DATA HANDLING AND CONFIDENTIALITY
+The fundamental axiom of our Data Privacy Policy revolves around absolute operational secrecy.
+* Collection Minimization: Staff must solely acquire the explicit KYC/CDD data inherently demanded by the internal protocol; aggressively fishing for auxiliary undocumented customer data is prohibited.
+* Cross-Selling Restrictions: Information curated explicitly for KYC validation cannot be arbitrarily exported and shared with unrelated external commercial marketing vectors without explicit localized secondary consent forms.
+* Confidentiality Obligation: All employees are legally bound to preserve the secrecy of the customer's identity. Furthermore, discussing specifics concerning High-Risk customer files outside secure internal environments operates as a severe institutional violation.
+
+DIRECT_ANSWER:
+Employees must handle customer KYC data exhibiting immense secrecy, acquiring solely the mandated minimum required fields perfectly divorced from external marketing vectors. Transmitting sensitive identity files indiscriminately generates paramount punitive consequences enforcing absolute institutional data confidentiality.
+
+SEARCH_TERMS:
+Data Privacy, Collection Minimization, Customer Secrecy, KYC Data Restrictions, Confidential Obligation
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter VII (Record Management), Section 49
+- Clause Summary: Dictates strictly that REs must enforce protocols establishing absolute confidentiality surrounding gathered customer data, prohibiting arbitrary disclosure except when expressly authorized under explicit legal or regulatory provisions.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 22
+- Paragraph/Clause: Chapter VII, Section 49
+
+INTERNAL INTERPRETATION:
+XYZ Financial Services understands that our customers expect us to guard their IDs harder than we guard the physical vault. Handing over an unredacted KYC application file blindly to a third-party analytics vendor without explicit legal routing constitutes identical harm to stealing cash straight out of the register.
+
+ACTIONABLE STEPS:
+- Mask or truncate complex ID values instantly when generating generalized internal statistical reports that don't operationally require the full raw integer sequence.
+- Terminate terminal sessions strictly when pivoting away from your active desk, ensuring wandering employees cannot scan the sensitive profile geometries you loaded.
+
+EDGE CASES:
+- An aggressive branch of the local state police arrives demanding immediate access to a prominent local customer's file without an explicit judicial warrant. The employee must definitively refuse and route the physical officers directly to the Principal Officer for legal verification.
+
+COMMON MISTAKES:
+- Utilizing personal localized USB sticks to rapidly transfer bulk KYC scans between two offline branch computers, manifesting massive uncontrolled data propagation vulnerabilities.
+
+BEST PRACTICES:
+- Adopt a philosophy of "Need to Know." If your explicit core task doesn't intrinsically require parsing the customer's deep corporate Beneficial Ownership structure, do not open that specific embedded module.
+
+Q&A SECTION:
+Q: What precisely defines "Collection Minimization"?
+A: Collection Minimization implies employees purposefully extract solely the explicitly mandated demographic information necessary to execute the KYC objective, refraining entirely from gathering extraneous surplus data.
+Q: Can KYC documents be shared loosely with partnered third-party marketing firms?
+A: Absolutely not. Records gathered explicitly satisfying compliance mandates are legally sealed and inherently prohibited from arbitrary exportation driving commercial marketing sequences.
+Q: Why is terminal locking highly emphasized in privacy modules?
+A: An unlocked unattended terminal actively exposes deeply sensitive financial histories to unauthorized localized foot traffic, aggressively violating fundamental institutional confidentiality guidelines.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter VII, Section 49
+
+---
+
+{
+  "chunk_id": "DATAPRIV_CHUNK02",
+  "document_name": "Data Privacy Policy",
+  "source_file": "data_privacy_policy.txt",
+  "source_file_path": "dataset/internal_docs/data_privacy_policy.txt",
+  "department": "Compliance Division",
+  "topic": "Access Control and Data Breach Handling",
+  "intent": "Explain the systemic controls isolating sensitive networks and outline the catastrophic response protocols surrounding an active data breach.",
+  "keywords": ["Access Control", "Data Breach", "Isolation", "Breach Protocol", "Zero Trust"],
+  "risk_level": "High",
+  "applicable_role": ["Manager", "Incident Response Officer", "Data Officers"],
+  "user_queries": [
+    "What should I do if customer data is accidentally sent to the wrong email?",
+    "How does the bank manage access to sensitive databases?",
+    "Who handles data breach escalations?"
+  ]
+}
+[CHUNK_ID: DATAPRIV_CHUNK02]
+[TOPIC: Access Control and Data Breach Handling]
+
+ACCESS CONTROL
+Sensitive structural nodes housing raw identities are ring-fenced behind comprehensive systemic access matrices. 
+* System access is explicitly governed dynamically by the user's specific tier within the active compliance workflow. A frontline teller checking an account balance fundamentally lacks the authorization keys required to extract the customer's deep-dive transaction monitoring algorithm arrays.
+* Employees attempting to query VIP or High-Risk accounts outside their explicitly assigned regional queue trigger instantaneous silent system anomaly alerts directly into the central IT security hub.
+
+DATA BREACH HANDLING
+Despite impenetrable system frameworks, human operational mistakes (such as misdirected emails containing unredacted KYC attachments) frequently yield data breaches.
+* Containment Action: The moment a breach vector is detected, the employee must attempt immediate recall and notify the Incident Response Officer in under 60 minutes.
+* Assessment: Compliance Leadership must collaborate dynamically with IT Engineering to map the precise scale of the breach footprint—calculating exactly how many raw records escaped.
+* Remedial Operations: Depending entirely on the severity, the Principal Officer evaluates if the breach constitutes explicit systemic failure requiring formal notification to federal authorities and, catastrophically, managing the notifications reaching out directly pointing out the exposure to the affected customers.
+
+DIRECT_ANSWER:
+XYZ Financial Services heavily isolates sensitive databases utilizing restrictive role-based access architectures. Should a breach manifest, the discovering employee must execute immediate containment and notify the Incident Response Officer inside an absolute 60-minute constraint guiding formal institutional damage assessment.
+
+SEARCH_TERMS:
+Access Matrix, Data Leak, Incident Response Officer, Role-Based Access, Zero Trust, Breach Protocol
+
+REGULATION SOURCE:
+- Act Name: SEBI Act 1992
+- Section Number: Chapter VIA (Penalties and Adjudication), Section 15HB
+- Clause Summary: Outlines heavy punitive constraints enforcing rigorous accountability when organizations inherently fail to preserve structural operational integrity across standard business ecosystems.
+
+SOURCE_REFERENCE:
+- Document Name: sebi_act.pdf
+- Page Number: Page 20
+- Paragraph/Clause: Chapter VIA, Section 15HB
+
+INTERNAL INTERPRETATION:
+A single corrupted Excel sheet wandering externally onto the public internet destroys five years of corporate trust. Access controls operate securely to ensure an employee can't accidentally export millions of rows of data they structurally shouldn't possess. Data breaches represent existential institutional threats demanding lightning-fast transparent mitigation.
+
+ACTIONABLE STEPS:
+- Proactively leverage standard email "Recall" functions instantly upon realizing you distributed sensitive attachment layouts towards an external unsanctioned address.
+- Double-verify cryptographic password protections wrapping large PDF or ZIP files prior to transmitting them across branch networks.
+
+EDGE CASES:
+- During a late-night operational push, the primary secure file-transfer protocol goes offline. An employee decides to rapidly bounce the sensitive KYC zip file through their personal unsecured Gmail account to bypass the outage. This acts as a profound intentional breach triggering immediate employment termination.
+
+COMMON MISTAKES:
+- Operating under the assumption that a minor localized leak (e.g. failing to shred a physical OVD copy dropped in the hallway) doesn't warrant formal escalation via the Incident Portal.
+
+BEST PRACTICES:
+- Constantly perform mental "To-Field" verification checks precisely before hitting send on external communications to guarantee unapproved vendors aren't accidentally copied into the sensitive chain.
+
+Q&A SECTION:
+Q: What characterizes a "Role-Based Access" control topology?
+A: Role-Based Access mathematically restricts systemic privileges exactly aligned to an employee’s specialized function, actively preventing frontline staff from viewing high-level investigative outputs.
+Q: Within what operational timeframe must an employee escalate an active identified data breach?
+A: Employees retain precisely less than 60 minutes post-identification to definitively escalate the incident securely to the localized Incident Response Officer.
+Q: Why do VIP account queries inherently trigger silent security alarms?
+A: VIPs traditionally attract excessive unauthorized internal snooping. The systems monitor queries explicitly outside assigned regional boundaries to identify hostile localized intelligence gathering.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+SEBI Act 1992, Chapter VIA, Section 15HB

@@ -1,0 +1,162 @@
+{
+  "chunk_id": "PERIUP_CHUNK01",
+  "document_name": "Periodic Updation",
+  "source_file": "periodic_updation.txt",
+  "source_file_path": "dataset/internal_docs/periodic_updation.txt",
+  "department": "Compliance Division",
+  "topic": "Workflow and Risk-Based Timelines for KYC Refreshment",
+  "intent": "Explain how risk categories mathematically dictate the rigid timelines under which customer identification credentials must be completely re-verified.",
+  "keywords": ["Periodic Updation", "KYC Refresh", "Timelines", "High Risk", "OVD Retreival", "Ten Years"],
+  "risk_level": "Medium",
+  "applicable_role": ["Branch Manager", "Frontline Staff", "Data Officers"],
+  "user_queries": [
+    "How often do I need to update a Low Risk account?",
+    "What triggers a KYC Periodic Updation notice?",
+    "Why must High Risk accounts be updated so frequently?"
+  ]
+}
+[CHUNK_ID: PERIUP_CHUNK01]
+[TOPIC: Workflow and Risk-Based Timelines for KYC Refreshment]
+
+Organization Name: XYZ Financial Services Pvt. Ltd.
+Document Type: Periodic Updation
+Department: Compliance Division
+Version: 1.0
+
+This document is intended for employees undergoing compliance training and audit preparation within the organization.
+
+INTRODUCTION
+KYC is not a singular event completed at the time of account creation; it is a continuously evolving standard. Operations staff are required to systematically contact existing customers and request entirely new Officially Valid Documents (OVDs) to ensure our central database matches current realities. Failing to execute Periodic Updation precisely on time creates massive audit violations. 
+
+RISK-BASED UPDATE RULES
+The systemic frequency regulating how often files must be refreshed is immutably bonded directly against the customer’s assigned risk category. The core system generates refreshment notices based exactly on these parameters:
+* High-Risk Customers: KYC profiles and entire source of wealth documents must be fully refreshed at least once every two years.
+* Medium-Risk Customers: Files must undergo comprehensive refreshment at least once every eight years.
+* Low-Risk Customers: Profiles are granted a comparatively relaxed threshold, requiring new document ingestion only once every ten years.
+
+In instances where no material change has occurred to a Low-Risk individual's identity or address, obtaining a signed self-declaration from the customer verifying that their existing submitted records remain accurate is sufficient to reset the ten-year timer.
+
+DIRECT_ANSWER:
+Employees must force KYC Profile updates aligned proportionally with systemic risk: every two years for High-Risk, eight for Medium, and ten for Low-Risk customers. For Low-Risk accounts specifically, a straightforward customer self-declaration can suffice if core demographics remain unchanged.
+
+SEARCH_TERMS:
+KYC Refresh, Periodic Updation Timelines, Two Years High Risk, Ten Years Low Risk, Self-Declaration
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter VII (Record Management), Section 38
+- Clause Summary: Outlines granular cadence requirements enforcing REs to execute periodic updates of KYC data explicitly spaced at 2, 8, and 10 year intervals scaling exactly with assessed demographic risks.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 15
+- Paragraph/Clause: Chapter VII, Section 38
+
+INTERNAL INTERPRETATION:
+XYZ Financial Services views static un-refreshed profiles as highly vulnerable institutional blind spots. The central registry dictates that a high-risk entity's profile from 2019 is fundamentally legally useless in 2022. Branches must relentlessly pursue non-compliant clients precisely because stale ID data invalidates our entire upstream transaction monitoring framework.
+
+ACTIONABLE STEPS:
+- Extract the 60-day "Impending KYC Updation" pipeline report from the terminal every Monday morning.
+- For High-Risk individuals, you must secure a brand new physical or digital verifiable OVD matching their current address; self-declarations are legally prohibited for this tier.
+- Send proactive multi-channel alerts (SMS, push, email) notifying clients to utilize our Digital Updation App months ahead of the deadline.
+
+EDGE CASES:
+- A Medium-Risk customer attempts to execute a massive wire transfer on the exact day their 8-year KYC profile legally expires. Branch Staff must institute a hard freeze on debit activity until the customer physically updates their file on the counter.
+
+COMMON MISTAKES:
+- Broadly applying the "Self-Declaration" loophole to High-Risk clients just to temporarily appease the system warning threshold, resulting in a severe direct regulatory breach.
+
+BEST PRACTICES:
+- Marry updates with commercial opportunities. When a relationship manager calls to demand updated OVDs, sequence the call professionally as an annual financial health review rather than just a compliance chore.
+
+Q&A SECTION:
+Q: Exactly how often must a High-Risk profile be subjected to Periodic Updation?
+A: High-Risk commercial and retail profiles must inherently be subjected to rigorous complete KYC refreshment at least once every two years.
+Q: Can a Low-Risk salaried account undergo updation without a new document upload?
+A: Yes, if demographics remain unaltered, securing an explicitly signed or cryptographically secure self-declaration satisfies the ten-year mandate.
+Q: Why doesn't the system monitor 5-year increments?
+A: RBI explicitly partitions the mathematical regulatory refresh cadence linearly into 2-year, 8-year, and 10-year tranches.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter VII, Section 38
+
+---
+
+{
+  "chunk_id": "PERIUP_CHUNK02",
+  "document_name": "Periodic Updation",
+  "source_file": "periodic_updation.txt",
+  "source_file_path": "dataset/internal_docs/periodic_updation.txt",
+  "department": "Compliance Division",
+  "topic": "Audit Expectations and Enforcing Account Restrictions",
+  "intent": "Highlight the intense audit scrutiny surrounding updation delays and dictate how uncooperative customer accounts must be legally frozen.",
+  "keywords": ["Account Freezing", "Auditor Expectations", "Overdue KYC", "Non-Cooperation", "Debit Freeze"],
+  "risk_level": "High",
+  "applicable_role": ["Branch Manager", "Auditor", "Data Officers"],
+  "user_queries": [
+    "What do auditors look for in periodic updation logs?",
+    "Can we freeze an account if the customer ignores KYC notices?",
+    "What is the timeline before applying a debit freeze?"
+  ]
+}
+[CHUNK_ID: PERIUP_CHUNK02]
+[TOPIC: Audit Expectations and Enforcing Account Restrictions]
+
+FREEZING AND NON-COOPERATION
+Customers frequently ignore repeated written requests to update their KYC documents. The institution cannot simply hold the file open indefinitely. Staff must seamlessly transition from polite warnings to rigid systemic restrictions according to the escalation pathway.
+* Notification Phase: Customers must be provided a minimum of three distinct structured notices urging them to comply.
+* Restriction Phase (Partial Freeze): If a customer breaches the mandated expiration date due to complete non-cooperation despite warnings, their operational account is placed under a Partial Freeze. This restricts them from initiating outward debit transactions but allows inward credits.
+* Total Restriction: Consequent to enduring a partial freeze for six continuous months with no resolution, the system transitions the account into a Total Freeze, terminating all credit and debit velocities pending an internal review for subsequent complete closure.
+
+AUDIT EXPECTATIONS
+Regulators treat missing Periodic Updation as a primary indicator of foundational institutional decay. Overdue KYC reports are the very first ledger requested globally during a structural examination.
+* Auditors stringently check whether the escalation pathway (Notice -> Partial Freeze -> Total Freeze) was genuinely executed.
+* Auditors search for overridden "freeze flags" where Branch Managers illicitly unlocked a frozen account merely to let a preferred client execute a single transaction without updating their file.
+
+DIRECT_ANSWER:
+Should customers entirely ignore KYC refresh requests, policy mandates progressing swiftly from notification bursts to a Partial Freeze (disabling outward transactions) escalating ultimately to a Total Freeze. Auditors scrutinize whether these debit-freezes are ruthlessly enforced uninhibited by corporate favoritism.
+
+SEARCH_TERMS:
+Account Freezing, Overdue KYC, Total Freeze, Auditor Scrutiny, Debit Restriction, Non-Cooperation
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter VII (Record Management), Section 38(e)
+- Clause Summary: Dictates specific punitive constraints organizations must deploy against non-compliant account holders, culminating in sequential phased transaction blocks prioritizing debit restrictions.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 16
+- Paragraph/Clause: Chapter VII, Section 38(e)
+
+INTERNAL INTERPRETATION:
+XYZ Financial Services recognizes that executing a freeze upsets commercial clients and reduces branch profitability temporarily. However, overriding a mandated KYC freeze constitutes explicit compliance circumvention. Local Managers do not possess the arbitrary latitude to negotiate with regulators on behalf of a stubborn customer.
+
+ACTIONABLE STEPS:
+- Print out the frozen account exception list daily to prevent frontline tellers from mistakenly attempting manual override withdrawals for upset walk-in clients.
+- Verify that every systemic freeze action is preceded by exactly three separate documented notification timestamps stored securely within the client master database.
+
+EDGE CASES:
+- A customer physically resides in an active medical coma just as their 8-year updation deadline hits. The branch must escalate the file securely to Legal and Compliance Leadership to invoke a specialized verifiable medical extension rather than blindly triggering a destructive total freeze.
+
+COMMON MISTAKES:
+- Relieving a Partial Freeze permanently just because the customer "promises to bring the documents in tomorrow." The freeze un-gates only when the ink hits the physical paper.
+- Failing to issue the three mandatory documented warnings, thereby creating massive institutional legal exposure when a freezing action triggers a retaliatory consumer-rights lawsuit.
+
+BEST PRACTICES:
+- Proactively call customers who hover 10 days away from a scheduled Partial Freeze. A direct personalized phone call from a living manager produces dramatically higher conversion rates than automated SMS bursts.
+
+Q&A SECTION:
+Q: What exactly defines a "Partial Freeze" in the context of KYC non-cooperation?
+A: A Partial Freeze strategically disables outward debit functionality preventing the client from removing funds, while generally permitting inward credit streams to continue depositing.
+Q: How soon does an account escalate to a Total Freeze?
+A: Assuming absolute disregard spanning six continuous months navigating beneath a Partial Freeze, the algorithm elevates the account into a Total Freeze status.
+Q: Why do auditors meticulously search for illicit override flags?
+A: Unapproved overrides expose that management actively conspired to defeat institutional security controls merely to provide elevated service to an unaccountable entity, constituting major fraud markers.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter VII, Section 38(e)

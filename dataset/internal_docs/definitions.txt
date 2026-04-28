@@ -1,0 +1,222 @@
+{
+  "chunk_id": "DEF_CHUNK01",
+  "document_name": "Compliance Definitions",
+  "source_file": "definitions.txt",
+  "source_file_path": "dataset/internal_docs/definitions.txt",
+  "department": "Compliance Division",
+  "topic": "Definition of KYC (Know Your Customer)",
+  "intent": "Provide the explicit definition of KYC for instant retrieval.",
+  "keywords": ["KYC", "Define KYC", "KYC Meaning", "Definition", "OVD", "Identity"],
+  "risk_level": "Low",
+  "applicable_role": ["All Employees"],
+  "user_queries": [
+    "What is KYC?",
+    "Define KYC",
+    "What does KYC mean?"
+  ]
+}
+[CHUNK_ID: DEF_CHUNK01]
+[TOPIC: Definition of KYC (Know Your Customer)]
+
+Organization Name: XYZ Financial Services Pvt. Ltd.
+Document Type: Compliance Definitions
+Department: Compliance Division
+Version: 1.0
+
+WHAT IS KYC?
+KYC stands for Know Your Customer. It represents the mandatory foundational process by which our institution identifies and verifies the true identity of a client before establishing any financial relationship. This is achieved exclusively by obtaining and verifying Officially Valid Documents (OVDs) such as passports or national identity cards. The core objective of KYC is to ensure that financial infrastructure is not abused by criminals attempting to conceal illicit funds or finance illegal operations.
+
+DIRECT_ANSWER:
+KYC (Know Your Customer) is the process by which financial institutions verify the identity of customers using officially valid documents to prevent fraud, money laundering, and terrorist financing.
+
+SEARCH_TERMS:
+what is kyc, define kyc, kyc meaning, kyc definition, know your customer definition
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter I (Preliminary), Section 3
+- Clause Summary: Explicitly defines the elements constituting customer identification and the necessity of verification.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 2
+- Paragraph/Clause: Chapter I, Section 3
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter I, Section 3
+
+---
+
+{
+  "chunk_id": "DEF_CHUNK02",
+  "document_name": "Compliance Definitions",
+  "source_file": "definitions.txt",
+  "source_file_path": "dataset/internal_docs/definitions.txt",
+  "department": "Compliance Division",
+  "topic": "Definition of AML (Anti-Money Laundering)",
+  "intent": "Provide the explicit definition of AML for instant retrieval.",
+  "keywords": ["AML", "Define AML", "AML Meaning", "Money Laundering", "Definition"],
+  "risk_level": "Low",
+  "applicable_role": ["All Employees"],
+  "user_queries": [
+    "What is AML?",
+    "Define AML",
+    "What does AML stand for?"
+  ]
+}
+[CHUNK_ID: DEF_CHUNK02]
+[TOPIC: Definition of AML (Anti-Money Laundering)]
+
+WHAT IS AML?
+AML stands for Anti-Money Laundering. It refers to the overarching web of laws, regulations, and internal institutional procedures specifically designed to stop criminals from disguising illegally obtained funds as legitimate income. While KYC specifically validates who the customer is, AML focuses actively on what the customer is doing with their money, ensuring we systematically track, identify, and block the integration of "dirty" money into the financial system.
+
+DIRECT_ANSWER:
+AML (Anti-Money Laundering) refers to the collective laws, regulations, and internal operational procedures implemented by financial institutions to detect, prevent, and report the conversion of illegally acquired funds into legitimate assets.
+
+SEARCH_TERMS:
+what is aml, define aml, aml meaning, aml definition, anti-money laundering definition
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter I (Preliminary), Section 3
+- Clause Summary: Outlines institutional obligations surrounding money laundering prevention and references the broader PML Act definitions.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 2
+- Paragraph/Clause: Chapter I, Section 3
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter I, Section 3
+
+---
+
+{
+  "chunk_id": "DEF_CHUNK03",
+  "document_name": "Compliance Definitions",
+  "source_file": "definitions.txt",
+  "source_file_path": "dataset/internal_docs/definitions.txt",
+  "department": "Compliance Division",
+  "topic": "Definition of CDD (Customer Due Diligence)",
+  "intent": "Provide the explicit definition of CDD for instant retrieval.",
+  "keywords": ["CDD", "Define CDD", "CDD Meaning", "Due Diligence", "Definition"],
+  "risk_level": "Low",
+  "applicable_role": ["All Employees"],
+  "user_queries": [
+    "What is CDD?",
+    "Define CDD",
+    "What does customer due diligence mean?"
+  ]
+}
+[CHUNK_ID: DEF_CHUNK03]
+[TOPIC: Definition of CDD (Customer Due Diligence)]
+
+WHAT IS CDD?
+CDD stands for Customer Due Diligence. It is the investigative process where our employees gather actionable facts about a customer to accurately assess their risk profile. CDD goes beyond merely collecting ID cards (KYC); it involves understanding the customer's business intent, mapping out expected transaction volumes, and uncovering the ultimate beneficial owners of corporate formations to ensure the client’s stated wealth actually matches their financial reality.
+
+DIRECT_ANSWER:
+CDD (Customer Due Diligence) is the investigative process of deeply analyzing a customer's background, intended business nature, and source of wealth to accurately assess and assign their financial risk profile during and after onboarding.
+
+SEARCH_TERMS:
+what is cdd, define cdd, cdd meaning, cdd definition, customer due diligence definition
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter I (Preliminary), Section 3
+- Clause Summary: Provides the formalized definition asserting CDD entails identifying the customer and verifying their identity utilizing reliable independent documents and data to understand the nature of the relationship.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 2
+- Paragraph/Clause: Chapter I, Section 3
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter I, Section 3
+
+---
+
+{
+  "chunk_id": "DEF_CHUNK04",
+  "document_name": "Compliance Definitions",
+  "source_file": "definitions.txt",
+  "source_file_path": "dataset/internal_docs/definitions.txt",
+  "department": "Compliance Division",
+  "topic": "Definition of STR (Suspicious Transaction Report)",
+  "intent": "Provide the explicit definition of STR for instant retrieval.",
+  "keywords": ["STR", "Define STR", "STR Meaning", "Suspicious Transaction", "Definition"],
+  "risk_level": "Low",
+  "applicable_role": ["All Employees"],
+  "user_queries": [
+    "What is an STR?",
+    "Define STR",
+    "What does STR stand for?"
+  ]
+}
+[CHUNK_ID: DEF_CHUNK04]
+[TOPIC: Definition of STR (Suspicious Transaction Report)]
+
+WHAT IS STR?
+STR stands for Suspicious Transaction Report. It is a highly confidential formal report submitted by the Principal Officer to the Financial Intelligence Unit (FIU-IND) regarding any transaction—regardless of its monetary value—that generates a reasonable assumption of illicit activity. STRs are filed when a transaction lacks an economic rationale, involves inexplicably complex structures, or is suspected to be tied to money laundering or terrorist financing. 
+
+DIRECT_ANSWER:
+STR (Suspicious Transaction Report) is a confidential alert explicitly filed with federal authorities detailing a financial transaction that lacks a legitimate economic purpose, involves forged data, or raises reasonable suspicions of criminal financing regardless of cash value.
+
+SEARCH_TERMS:
+what is str, define str, str meaning, str definition, suspicious transaction report definition
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter I (Preliminary), Section 3
+- Clause Summary: Defines a suspicious transaction as an arrangement giving rise to inference of crime or terror financing, inherently lacking bona fide purpose.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 2
+- Paragraph/Clause: Chapter I, Section 3
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter I, Section 3
+
+---
+
+{
+  "chunk_id": "DEF_CHUNK05",
+  "document_name": "Compliance Definitions",
+  "source_file": "definitions.txt",
+  "source_file_path": "dataset/internal_docs/definitions.txt",
+  "department": "Compliance Division",
+  "topic": "Definition of CTR (Cash Transaction Report)",
+  "intent": "Provide the explicit definition of CTR for instant retrieval.",
+  "keywords": ["CTR", "Define CTR", "CTR Meaning", "Cash Transaction", "Definition"],
+  "risk_level": "Low",
+  "applicable_role": ["All Employees"],
+  "user_queries": [
+    "What is a CTR?",
+    "Define CTR",
+    "What does CTR stand for?"
+  ]
+}
+[CHUNK_ID: DEF_CHUNK05]
+[TOPIC: Definition of CTR (Cash Transaction Report)]
+
+WHAT IS CTR?
+CTR stands for Cash Transaction Report. Unlike the subjective STR, the CTR is an objective monthly report automatically generated and transmitted to the Financial Intelligence Unit (FIU-IND). It mathematically documents all cash transactions occurring at our institution that exceed a predetermined statutory threshold (e.g., massive cash drops exceeding Rupees 10 Lakhs or an integrally connected sequence of cash deposits breaching that limit collectively).
+
+DIRECT_ANSWER:
+CTR (Cash Transaction Report) is a mandatory, automated mathematical report filed to regulatory authorities that aggregates and tracks all physical cash transactions exceeding predefined statutory limits, completely irrespective of underlying suspicion.
+
+SEARCH_TERMS:
+what is ctr, define ctr, ctr meaning, ctr definition, cash transaction report definition
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter VIII (Reporting Requirements), Section 54
+- Clause Summary: Details the mechanistic obligation generating records for all cash transactions eclipsing 10 Lakhs alongside integrally connected subsidiary streams.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 30
+- Paragraph/Clause: Chapter VIII, Section 54
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter VIII, Section 54

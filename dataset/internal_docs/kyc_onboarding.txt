@@ -1,0 +1,193 @@
+{
+  "chunk_id": "KYCONB_CHUNK01",
+  "document_name": "KYC and Customer Onboarding Procedures",
+  "source_file": "kyc_onboarding.txt",
+  "source_file_path": "dataset/internal_docs/kyc_onboarding.txt",
+  "department": "Compliance Division",
+  "topic": "De-duplication and Central Registry Retrieval Workflow",
+  "intent": "Establish mechanics of searching for pre-existing customer records locally and centrally during intake to avoid profile replication.",
+  "keywords": ["Onboarding", "De-duplication", "Central Registry", "Consent", "Maker-Checker", "CKYCR"],
+  "risk_level": "Medium",
+  "applicable_role": ["Frontline Staff", "Maker Agents"],
+  "user_queries": [
+    "How does the onboarding deduplication check work?",
+    "Why must we query the central registry during onboarding?",
+    "Can a Maker act as a Checker during customer activation?"
+  ]
+}
+[CHUNK_ID: KYCONB_CHUNK01]
+[TOPIC: De-duplication and Central Registry Retrieval Workflow]
+
+Organization Name: XYZ Financial Services Pvt. Ltd.
+Document Type: KYC and Customer Onboarding Procedures
+Department: Compliance Division
+Version: 1.0
+
+This document is intended for employees undergoing compliance training and audit preparation within the organization.
+
+INTRODUCTION
+This document outlines the specific step-by-step operational workflows required to onboard a new customer into our core systems. While the Compliance Manual sets the high-level policy, this guide provides the exact mechanical steps employees must take to process a new account application from intake to final activation. Proper execution of these steps minimizes friction for the customer while ensuring zero regulatory gaps.
+
+KEY CONCEPTS
+Maker-Checker Framework: A fundamental internal control where the employee initiating an onboarding request (Maker) cannot be the same employee who approves and activates the account (Checker).
+De-duplication Check: The system process of checking whether a new applicant already has an existing profile or relationship within our institution.
+Central Registry Query: Accessing national centralized databases to check if the customer’s verified data is already available centrally for seamless onboarding.
+
+DETAILED PROCEDURE AND WORKFLOW
+Employees must strictly execute the following onboarding sequence for every new applicant:
+
+Step 1: Application Intake and Consent
+The onboarding representative must ensure the customer signs the account opening form and explicitly signs the consent declaration for digital identity fetching. Without signed consent, the process must stop immediately.
+
+Step 2: De-duplication Check
+Before creating a new profile, employees must run a check in the core platform using the customer's mobile number, email, and primary identification number. If an existing profile is found, the new request must be linked to the existing internal Customer ID.
+
+Step 3: Central Registry Query
+Employees must enter the customer's ID details to query the central digital registry. If the record exists, download the central details and use them to pre-fill our internal system. If the record is missing, proceed with full manual data capture.
+
+DIRECT_ANSWER:
+To avoid dangerous multi-profile fragmentation, employees must execute a strict sequence of obtaining consent, running a localized de-duplication check, and parsing the Central Registry for existing verified data before manually capturing customer records.
+
+SEARCH_TERMS:
+De-duplication, Central Registry Query, Consent Declaration, Maker-Checker, Application Intake, CKYCR
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter VI (Customer Due Diligence), Section 40/41
+- Clause Summary: REs must rely on the Central KYC Records Registry for simplified KYC data retrieval and must ensure single-customer views via unique customer identification codes.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 17
+- Paragraph/Clause: Chapter VI, Section 40/41
+
+INTERNAL INTERPRETATION:
+XYZ Financial Services enforces De-duplication to guarantee a unified view of customer risk. If a customer has a savings account and subsequently applies for a loan, merging these under a single customer ID is mandated by RBI directives. Fetching from the Central Registry ensures operational efficiency and uniform compliance across institutions.
+
+ACTIONABLE STEPS:
+- Obtain wet-ink or verified digital signatures on the explicit KYC consent clause.
+- Enter the mobile number and primary ID into the "De-Dupe Search" portal.
+- Query the Central Registry and auto-populate all available fields into the new XYZ Bank form template.
+
+EDGE CASES:
+- The customer verbally consents but refuses to check the digital consent box. The representative is not permitted to bypass the system guardrail, and central fetching must be aborted.
+
+COMMON MISTAKES:
+- Ignoring fuzzy-match warnings from the De-Duplication system because a customer spelled their name slightly differently, resulting in the creation of an entirely new fractured profile.
+
+BEST PRACTICES:
+- Reject incomplete physical forms back to the customer instantly rather than holding them in a pending system state, preserving a clean digital pipeline.
+
+Q&A SECTION:
+Q: What is a De-duplication Check?
+A: It is the operational process of searching internal networks by name, phone, or ID to confirm if an applicant already possesses an established profile within the institution.
+Q: Why must Central Registry querying occur?
+A: It streamlines the onboarding process, prevents repetitive physical document demands to the client, and leverages nationally vetted data under regulatory mandates.
+Q: Can a Maker also function as the Checker for the same applicant file?
+A: No, the Maker-Checker Framework strictly prohibits the same employee from both submitting and approving an account to ensure dual-control integrity.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter VI, Section 40
+
+---
+
+{
+  "chunk_id": "KYCONB_CHUNK02",
+  "document_name": "KYC and Customer Onboarding Procedures",
+  "source_file": "kyc_onboarding.txt",
+  "source_file_path": "dataset/internal_docs/kyc_onboarding.txt",
+  "department": "Compliance Division",
+  "topic": "Screening, Checker Verification, and Onboarding Scenarios",
+  "intent": "Explain the final procedural checks, watch-list screening, and Maker-Checker auditing during customer activation.",
+  "keywords": ["Screening", "PEP", "Checker Verification", "Audit Perspective", "Data Entry", "Sanctions", "High Risk"],
+  "risk_level": "High",
+  "applicable_role": ["Maker Agents", "Checker Agents", "Auditor"],
+  "user_queries": [
+    "What is the Checker Verification process in onboarding?",
+    "How does the bank handle Politically Exposed Persons (PEPs) during onboarding?",
+    "Why must Makers and Checkers have unique timestamps?"
+  ]
+}
+[CHUNK_ID: KYCONB_CHUNK02]
+[TOPIC: Screening, Checker Verification, and Onboarding Scenarios]
+
+Step 4: Real-time Screening
+The application must be routed through our internal screening module to check against prominent sanctions lists and Politically Exposed Persons (PEP) databases.
+
+Step 5: Maker Data Entry
+The Maker inputs all collected data into the onboarding module, scans the signed original documents, and submits the file into the internal checker queue.
+
+Step 6: Checker Verification
+The Checker reviews the physical or scanned documentation against the data entered by the Maker. If all data matches without discrepancies, the Checker authorizes the account activation.
+
+PRACTICAL SCENARIOS
+Scenario A: The screening system flags a new applicant as a potential PEP match. The Maker must immediately halt the standard process and route the application to the specialized High-Risk Onboarding Queue for senior management clearance before any account number is generated.
+
+Scenario B: During the central registry query, the returned data shows an outdated address compared to the customer's newly presented utility bill. The employee must proceed to onboard the customer using the new updated address proof and immediately trigger an internal update request to refresh the central database.
+
+AUDIT PERSPECTIVE
+During audits, internal compliance reviewers will randomly sample onboarding files to test the Maker-Checker control and workflow consistency. Auditors specifically verify the following:
+- That the employee ID of the Maker is conclusively different from the Checker.
+- That the timestamp of the screening check occurred before the timestamp of the account activation.
+- That the customer's signature on the physical form perfectly matches the digital scan stored in the core system.
+
+COMMON MISTAKES AND RISKS
+- Data Entry Typos: Misspelling a customer name or entering an incorrect date of birth, which causes permanent mismatch errors with external registries.
+- Bypassing Controls: Makers attempting to use a colleague's unguarded terminal to perform Checker duties on their own uploaded files. This is a severe internal violation.
+- Ignoring Duplicate Warnings: Creating a brand new Customer ID instead of linking accounts, which fragments the customer's risk profile across multiple internal records and blind-spots the transaction monitoring system.
+
+BEST PRACTICES
+- Verify communication channels instantly. Send an authentication code to the customer's provided mobile number and email address while they are still present to ensure contact accuracy.
+- Double-check critical fields before hitting submit in the Maker queue. Taking five extra seconds to review the data prevents days of backend correction efforts.
+
+EMPLOYEE RESPONSIBILITIES
+All staff are required to act as strict gatekeepers for our institution. Employees must treat the onboarding data entry process with maximum precision and care. Non-compliance may result in disciplinary action and institutional fines for poor data quality. It is the absolute responsibility of the Maker to capture flawless data, and the responsibility of the Checker to catch any anomalies before the account goes live.
+
+DIRECT_ANSWER:
+Account files must pass through automated PEP/Sanctions screening before being submitted by the Maker. The Checker must rigorously verify the digital and physical records for mismatch before authorizing live account status, ensuring high accountability and clean digital audit trails.
+
+SEARCH_TERMS:
+PEP Screening, Checker Verification, Maker Queue, High-Risk Escalation, Data Entry Accuracy, Sanctions
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter IX (Requirements/obligations under International Agreements)
+- Clause Summary: REs must electronically screen all newly acquired clients against the UN Sanctions List and maintain intensified vigilance for Politically Exposed Persons (PEPs).
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 25
+- Paragraph/Clause: Chapter IX, Section 51
+
+INTERNAL INTERPRETATION:
+Automated screening forms the absolute boundary against inadvertently servicing internationally sanctioned individuals. By routing hits immediately to High-Risk queues, XYZ Financial Services ensures frontline employees avoid making complex geopolitical compliance decisions, delegating that strictly to the Principal Officer.
+
+ACTIONABLE STEPS:
+- Wait for the "Clear" signal from the internal Sanctions/PEP screening API before hitting "Submit to Checker".
+- Verify that every field typed by the Maker perfectly aligns character-for-character with the scanned identity image during Checker review.
+- Report terminal hijacking if you discover another employee used your unlocked computer to "Check" their own files.
+
+EDGE CASES:
+- Screening returns a "False Positive" match because the customer shares a common name with a sanctioned entity. The Maker must attach supplementary ID data (such as DOB and parents' names) to conclusively clear the false flag before continuing.
+
+COMMON MISTAKES:
+- A Checker approving an application without actually reviewing the scanned attached documents, assuming the Maker's data entry was flawless.
+
+BEST PRACTICES:
+- Leverage physical validation by directly comparing the inked signature from the original application form to the signature visible in the OVD.
+- Maintain an extremely low tolerance for data anomalies. Reject the entire application file back to the Maker queue for even minor spelling variations.
+
+Q&A SECTION:
+Q: What action is required if an applicant is flagged as a potential PEP?
+A: The standard onboarding process must be immediately halted and the file escalated straight to the specialized High-Risk Onboarding Queue for senior clearance.
+Q: What does an auditor look for regarding the Maker-Checker framework?
+A: Auditors verify that the timestamped employee ID of the Maker is strictly unique and different from the employee ID of the Checker on every single application file.
+Q: How should address discrepancies between the Central Registry and an updated bill be handled?
+A: The employee must onboard using the updated valid physical proof and send a triggering request to officially refresh the outdated Central Registry profile.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter IX, Section 51

@@ -1,0 +1,260 @@
+{
+  "chunk_id": "COMPMAN_CHUNK01",
+  "document_name": "Compliance Training Manual",
+  "source_file": "compliance_manual.txt",
+  "source_file_path": "dataset/internal_docs/compliance_manual.txt",
+  "department": "Compliance Division",
+  "topic": "Overview of Compliance Importance",
+  "intent": "Establish the foundational relevance of compliance, institutional protection, and employee accountability.",
+  "keywords": ["Compliance", "AML", "Financial Crimes", "Accountability", "Defense"],
+  "risk_level": "High",
+  "applicable_role": ["All Employees", "Manager", "Auditor"],
+  "user_queries": [
+    "Why is compliance important for standard employees?",
+    "What happens if I ignore an internal compliance policy?",
+    "How does compliance protect the bank's reputation?"
+  ]
+}
+[CHUNK_ID: COMPMAN_CHUNK01]
+[TOPIC: Overview of Compliance Importance]
+
+Organization Name: XYZ Financial Services Pvt. Ltd.
+Document Type: Compliance Training Manual
+Department: Compliance Division
+Version: 1.0
+
+This document is intended for employees undergoing compliance training and audit preparation within the organization.
+
+OVERVIEW OF COMPLIANCE IMPORTANCE
+Within our organization, compliance forms the foundational pillar of our financial operations. Employees must understand that adherence to our internal guidelines is not simply a procedural formality; it is a critical defense mechanism against financial crimes, money laundering, and terrorist financing. Compliance protects our institution’s reputation, ensures the security of our customers' assets, and maintains the integrity of the broader financial system.
+
+All staff are required to thoroughly familiarize themselves with internal compliance policies. Non-compliance may result in severe disciplinary action, including termination of employment, as well as potential personal and institutional legal liabilities. Ignorance of compliance protocols is never an acceptable defense. Employees must integrate these principles into every customer interaction and transaction processing task. Our compliance team ensures vigilance is maintained at all levels to prevent illicit activities from infiltrating our services.
+
+DIRECT_ANSWER:
+Compliance at XYZ Financial Services is a mandatory regulatory defense mechanism against financial crimes. It requires universal employee adherence to protect institutional integrity, with severe disciplinary consequences for non-compliance.
+
+SEARCH_TERMS:
+Compliance Importance, Disciplinary Action, Financial Crimes Prevention, Institutional Protection, Regulatory Adherence, AML Mandates
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter II (General), Section 4
+- Clause Summary: REs must implement a board-approved KYC policy to ensure compliance with the PML Act and Rules, providing a bulwark against money laundering and terror financing.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 3
+- Paragraph/Clause: Clause 4 (General Parameters)
+
+INTERNAL INTERPRETATION:
+The RBI mandates that we actively prevent criminals from using our infrastructure. Internally, this means treating every account opening and transaction as a potential vector for money laundering. XYZ Financial Services operates on a zero-tolerance policy for KYC/AML evasion.
+
+ACTIONABLE STEPS:
+- Annually review and sign the updated XYZ Financial Services Compliance Code of Conduct.
+- Report any observed or suspected internal policy deviations directly to the Compliance Division.
+- Always perform identity checks independently without relying on a colleague's verbal assurance.
+
+EDGE CASES:
+- An employee is asked by a high-value client to legally bypass a "minor" compliance rule. The employee must immediately refuse, log the interaction, and notify the Compliance Officer.
+
+COMMON MISTAKES:
+- Assuming compliance is only the responsibility of the back-office or specialized auditors, rather than the frontline staff.
+- Treating mandatory periodic training modules as a "tick-box" exercise rather than actively retaining the material.
+
+BEST PRACTICES:
+- Cultivate a "compliance-first" mindset: if a transaction feels too complex or lacks economic rationale, pause and consult the policy.
+- Document all interactions carefully so that your compliance decisions are defensible during an audit.
+
+Q&A SECTION:
+Q: Why is compliance critically important for every employee?
+A: Compliance protects the institution from regulatory penalties, safeguards customer assets, and prevents the facilitation of financial crimes like money laundering.
+
+Q: Can ignorance of a specific compliance rule be used as a defense if an error occurs?
+A: No, ignorance of compliance protocols is never an acceptable defense at XYZ Financial Services, and penalties for breaches remain severe.
+
+Q: What are the potential consequences of non-compliance?
+A: Consequences include personal and institutional legal liabilities, regulatory fines, and severe internal disciplinary action including employment termination.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter II, Section 4
+
+---
+
+{
+  "chunk_id": "COMPMAN_CHUNK02",
+  "document_name": "Compliance Training Manual",
+  "source_file": "compliance_manual.txt",
+  "source_file_path": "dataset/internal_docs/compliance_manual.txt",
+  "department": "Compliance Division",
+  "topic": "KYC Procedures and Customer Onboarding",
+  "intent": "Guide employees safely through risk categorization and the operational onboarding phase.",
+  "keywords": ["KYC", "RBA", "Onboarding", "CDD", "High-Risk", "Know Your Customer"],
+  "risk_level": "High",
+  "applicable_role": ["Frontline Staff", "Onboarding Agents", "Manager"],
+  "user_queries": [
+    "What is the Risk-Based Approach (RBA)?",
+    "How do we handle onboarding for High-Risk customers?",
+    "Can we open anonymous accounts?"
+  ]
+}
+[CHUNK_ID: COMPMAN_CHUNK02]
+[TOPIC: KYC Procedures and Customer Onboarding]
+
+KYC PROCEDURES
+Know Your Customer (KYC) procedures are mandatory for establishing any new business relationship. Our institution requires employees to implement a Risk-Based Approach (RBA) when dealing with clients. Customers must be categorized into Low, Medium, and High-Risk profiles based on their identity, nature of business, location, and the types of transactions they intend to undertake.
+
+Employees must perform Customer Due Diligence (CDD) before finalizing any account opening. For High-Risk customers, Enhanced Due Diligence (EDD) is strictly required. This includes obtaining senior management approval, gathering additional information on the source of funds, and implementing more frequent transaction monitoring. No account shall be opened if our institution is unable to apply appropriate KYC measures due to customer non-cooperation or unreliability of provided documents.
+
+CUSTOMER ONBOARDING
+During the customer onboarding phase, employees must gather complete and accurate information. The following protocols must be followed strictly:
+- Employees must ensure that no account is opened under an anonymous, fictitious, or benami name.
+- The purpose and intended nature of the business relationship must be clearly established and documented.
+- For non-face-to-face onboarding (such as Video KYC), employees must ensure a seamless, secure, and live audio-visual interaction, verifying the customer's physical location and capturing a clear live photograph alongside the original identification documents.
+- Employees must screen all new applicants against appropriate internal sanctions lists to ensure we do not onboard prohibited individuals or entities.
+- Explicit consent must be obtained and securely recorded before fetching any verifiable digital identity records.
+
+DIRECT_ANSWER:
+Employees must apply a Risk-Based Approach (RBA) to classify customers during onboarding, applying Standard CDD or Enhanced CDD. Anonymous accounts are strictly prohibited, and explicit consent is required before gathering digital identity elements or undertaking Video KYC.
+
+SEARCH_TERMS:
+Risk-Based Approach, CDD, EDD, Non-face-to-face Onboarding, Anonymous Accounts, Video KYC, Onboarding Screening
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter III (Customer Acceptance Policy), Section 10
+- Clause Summary: Prohibits anonymous/fictitious accounts, mandates risk-categorization, enforces CDD before onboarding, and requires checking names against overarching sanctions lists.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 5
+- Paragraph/Clause: Chapter III, Section 10 (a-f)
+
+INTERNAL INTERPRETATION:
+This regulation forms the operational foundation of onboarding at XYZ Financial Services. It means that we cannot prioritize business growth over identity certainty. Every account application must be matched to a verified human identity, thoroughly risk-scored, and approved logically before system activation.
+
+ACTIONABLE STEPS:
+- Retrieve and verify the explicitly signed consent form from every applicant before querying any national digital repository.
+- Run the prospective customer's name through the XYZ Financial Sanctions Screener module prior to establishing an account link.
+- For high-risk applications, prepare the EDD justification file and escalate to the Branch Management for digital sign-off.
+
+EDGE CASES:
+- The customer's face matching the ID during a Video KYC session is occluded by poor lighting. The employee must reject the session and politely ask the customer to restart the video call in clear lighting. No exceptions.
+
+COMMON MISTAKES:
+- Categorizing a complex business entity as "Low Risk" merely to bypass the intensive documentation requirements of EDD.
+- Failing to confirm whether the applicant is a Politically Exposed Person (PEP) during the intake interview.
+
+BEST Practices:
+- Be highly granular when documenting the "intended nature of the business relationship." Instead of writing "savings," write "personal salary deposits from Employer X."
+- Cross-reference the live Video KYC location coordinates with the customer's stated permanent address to identify anomalous physical discrepancies immediately.
+
+Q&A SECTION:
+Q: When is Enhanced Due Diligence (EDD) required?
+A: EDD is required exclusively for customers designated as High-Risk, requiring senior management sign-off, detailed source of wealth inquiries, and intense monitoring.
+
+Q: Can an account be opened under a fictitious name for privacy reasons?
+A: Absolutely not. Anonymous, fictitious, or "benami" accounts are legally prohibited under RBI regulations and XYZ internal policy.
+
+Q: What must an employee do if a customer refuses to provide essential KYC documents?
+A: The employee must immediately halt the onboarding process and refuse to establish the business relationship due to non-cooperation.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter III, Section 10
+
+---
+
+{
+  "chunk_id": "COMPMAN_CHUNK03",
+  "document_name": "Compliance Training Manual",
+  "source_file": "compliance_manual.txt",
+  "source_file_path": "dataset/internal_docs/compliance_manual.txt",
+  "department": "Compliance Division",
+  "topic": "Identity Verification and Record Maintenance",
+  "intent": "Detail the handling of Officially Valid Documents (OVDs), preservation of data, and overarching employee responsibility for confidentiality.",
+  "keywords": ["OVD", "Identity Verification", "Record Maintenance", "Beneficial Owner", "Confidentiality"],
+  "risk_level": "Medium",
+  "applicable_role": ["All Employees", "Data Officers", "Compliance Analysts"],
+  "user_queries": [
+    "What documents do we accept as OVDs?",
+    "How long do we legally need to preserve customer transaction history?",
+    "How do we handle temporary address proof like utility bills?"
+  ]
+}
+[CHUNK_ID: COMPMAN_CHUNK03]
+[TOPIC: Identity Verification and Record Maintenance]
+
+IDENTITY VERIFICATION
+Identity verification must rely on reliable and independent sources. All staff are required to collect Officially Valid Documents (OVDs), which include a passport, driving license, voter's identity card, localized physical identity documents, or proof of a unique national identification number.
+
+- Originals Check: If physical documents are provided, employees must verify the provided copies against the original documents. The verified copy must be stamped and signed as a Certified Copy.
+- Address Mismatches: If the submitted OVD does not contain the current address, employees may accept limited equivalent documents, such as a recent utility bill (not older than two months), municipal tax receipts, or an official letter of accommodation. The customer must then provide a fully updated OVD containing the current address within exactly three months.
+- Digital Signatures: When accepting equivalent e-documents, employees must ensure the digital signature is valid and issued by the correct issuing authority.
+- Beneficial Owners: For legal entities (companies, trusts, partnerships), employees must peel back the corporate layers to identify the ultimate natural person(s) who holds controlling ownership or exercises ultimate effective control.
+
+RECORD MAINTENANCE
+Meticulous record management is mandatory. Employees must ensure that all collected documents, risk assessments, and transaction records are stored securely in our designated internal digital repositories.
+
+- Records of all executed transactions and customer identification data must be preserved securely for a minimum of five years from the date of the transaction or five years from the date the business relationship is officially terminated.
+- Employees must conduct Periodic Updation of KYC documents. High-risk customers require more frequent updates compared to low-risk customers. 
+- No customer record should be deleted or modified locally without routing through the proper centralized authorization channels.
+
+EMPLOYEE RESPONSIBILITIES
+Within our organization, every employee acts as the first line of defense. All staff are required to:
+- Attend mandatory periodic compliance refresher training sessions.
+- Promptly capture and update customer data whenever there is a material change in their profile.
+- Never advise, guide, or assist customers in bypassing or circumventing any compliance control or reporting threshold.
+- Maintain absolute confidentiality regarding customer data and internal monitoring parameters. Under no circumstances should customers be informed that they are under enhanced scrutiny.
+
+DIRECT_ANSWER:
+Employees must verify identity using primary OVDs, maintaining certified copies. All transaction and KYC data must be securely preserved for at least five years after account closure. Further, employees must maintain total confidentiality and regularly participate in compliance training.
+
+SEARCH_TERMS:
+OVDs, Certified Copy, Beneficial Owner, Five-Year Record Retention, Periodic Updation
+
+REGULATION SOURCE:
+- Act Name: RBI Master Direction - Know Your Customer (KYC) Direction, 2016
+- Section Number: Chapter VII (Record Management), Section 50
+- Clause Summary: REs must store transaction details and identity documents for up to five years post-account closure and actively undertake Periodic Updation of records based on the customer’s risk profile.
+
+SOURCE_REFERENCE:
+- Document Name: Master_Direction_KYC_2016.pdf
+- Page Number: Page 22
+- Paragraph/Clause: Chapter VII, Section 50 (a-c)
+
+INTERNAL INTERPRETATION:
+XYZ Financial Services views data preservation not only as a defense against regulatory audits but as critical intelligence for future financial crime investigations. Identifying the Beneficial Owner ensures we know the true human orchestrating corporate accounts, preventing shell-company abuse.
+
+ACTIONABLE STEPS:
+- Physically view the original OVD and ink-stamp the photocopy with the "Original Seen & Verified" XYZ Bank seal, accompanied by your signature and employee ID.
+- Flag corporate accounts missing Beneficial Owner declarations and place them on a restricted-transaction hold until updated.
+- Automatically securely route offline verification documents to the Central digital vault for permanent unalterable storage.
+
+EDGE CASES:
+- A customer submits a utility bill from 3 months ago to cover an address mismatch. The employee must definitively reject the document, as the policy strictly limits utility bills to being no older than two months.
+
+COMMON MISTAKES:
+- Failing to persistently track customers who were granted the 3-month grace period for a temporary address proof, leading to severely aging non-compliant accounts.
+- Attempting to clean up local storage by deleting customer files without confirming they have been permanently replicated to the central secure server.
+
+BEST PRACTICES:
+- Set automated calendar reminders for High-Risk accounts 30 days prior to their mandated Periodic Updation deadline to proactively contact the relationship manager.
+- Verify equivalent e-documents using official government portal APIs wherever available, relying minimally on potentially manipulated PDFs.
+
+Q&A SECTION:
+Q: What age limit is applied to utility bills utilized for temporary address mismatches?
+A: Utility bills utilized to bypass a temporary address discrepancy must not be older than two months.
+
+Q: How long must customer identification and transaction records be retained by the institution?
+A: Documents and transaction records must be safely preserved for at least five years from the transaction date or five years from the relationship's ultimate termination.
+
+Q: Who is considered a Beneficial Owner?
+A: The Beneficial Owner is the ultimate natural person behind a legal entity who either has a controlling ownership interest or exercises ultimate effective control over the entity.
+
+CONFIDENCE: High
+
+FINAL_CITATION:
+RBI Master Direction - KYC (2016), Chapter VII, Section 50
