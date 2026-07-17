@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Compliance RAG pipeline — FAISS-backed semantic search over KYC/AML internal docs with an OpenAI-powered FastAPI endpoint."
 authors = ["zorro-omarchy"]
 channels = ["conda-forge", "pytorch"]
-platforms = ["linux-64"]
+platforms = ["linux-64",  "win-64"]
 
 # ── Base Python ──────────────────────────────────────────────
 [dependencies]
